@@ -7,6 +7,12 @@ const User = mongoose.model("User");
 
 const router = express.Router();
 
+router.get("/", (req, res) => {
+  User.find()
+    .then(users => res.json(users))
+    .catch(err => console.log(err));
+});
+
 router.post("/signup", (req, res) => {
   if (req.body.email && req.body.password) {
     let newUser = {

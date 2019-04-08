@@ -3,7 +3,7 @@ const cors = require("cors");
 const parser = require("body-parser");
 const methodOverride = require("method-override");
 const passport = require("./config/passport")();
-const userController = require("./controllers/users.js");
+const userController = require("./controllers/user.js");
 // const songController = require("./controllers/song");
 // const voteController = require("./controllers/votes");
 

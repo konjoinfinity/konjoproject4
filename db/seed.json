@@ -8,16 +8,14 @@
       "two": "Art",
       "three": "Technology"
     },
-
     "name": "Brian",
-    "email": "brian@Brian.com",
+    "email": "brian@brian.com",
     "password": "hellohello",
     "interests": {
       "one": "Biking",
       "two": "Kyaking",
       "three": "Running"
     },
-
     "name": "Tim",
     "email": "tim@tim.com",
     "password": "byebyebye",
