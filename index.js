@@ -15,10 +15,6 @@ app.use(parser.json());
 app.use(methodOverride("_method"));
 app.use(passport.initialize());
 
-app.get("/", function(req, res) {
-  res.json("Konjo!");
-});
-
 // app.use("/songs", songController);
 app.use("/users", userController);
 // app.use("/votes", voteController);

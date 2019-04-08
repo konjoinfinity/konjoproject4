@@ -7,12 +7,6 @@ const User = mongoose.model("User");
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  User.find()
-    .then(users => res.json(users))
-    .catch(err => console.log(err));
-});
-
 router.post("/signup", (req, res) => {
   if (req.body.email && req.body.password) {
     let newUser = {
@@ -44,6 +38,7 @@ router.post("/signup", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
+  console.log(req.body.password);
   if (req.body.email && req.body.password) {
     User.findOne({ email: req.body.email }).then(user => {
       if (user) {
