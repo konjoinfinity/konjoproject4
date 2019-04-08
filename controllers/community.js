@@ -28,7 +28,6 @@ router.put("/:id", (req, res) => {
     community.name = req.body.name;
     community.description = req.body.description;
     community.category = req.body.category;
-    community.creator = req.body.email;
     community.save((err, community) => {
       res.json(community);
     });
@@ -66,6 +65,22 @@ router.put("/:id/delete", (req, res) => {
     community.save((err, community) => {
       res.json(community);
     });
+  });
+});
+
+router.put("/:id/meet", (req, res) => {
+  const createMeet = {
+    name: req.body.meet.name,
+    description: req.body.meet.description,
+    date: req.body.meet.date,
+    time: req.body.meet.time
+  };
+  console.log(createMeet);
+  Community.findOneAndUpdate(
+    { _id: req.params.id },
+    { $push: { meets: createMeet } }
+  ).then(community => {
+    res.json(community);
   });
 });
 
