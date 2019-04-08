@@ -24,10 +24,10 @@ router.put("/:id", (req, res) => {
   Community.findOne({
     _id: req.params.id
   }).then(community => {
-    community.title = req.body.title;
-    community.author = req.body.author;
-    community.notes = req.body.notes;
-    community.lyrics = req.body.lyrics;
+    community.name = req.body.name;
+    community.description = req.body.description;
+    community.category = req.body.category;
+    community.creator = req.body.email;
     community.save((err, community) => {
       res.json(community);
     });
