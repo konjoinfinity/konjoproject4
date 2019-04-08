@@ -4,8 +4,7 @@ const parser = require("body-parser");
 const methodOverride = require("method-override");
 const passport = require("./config/passport")();
 const userController = require("./controllers/user.js");
-// const songController = require("./controllers/song");
-// const voteController = require("./controllers/votes");
+const songController = require("./controllers/community");
 
 const app = express();
 
@@ -15,9 +14,8 @@ app.use(parser.json());
 app.use(methodOverride("_method"));
 app.use(passport.initialize());
 
-// app.use("/songs", songController);
+app.use("/community", communityController);
 app.use("/users", userController);
-// app.use("/votes", voteController);
 
 app.set("port", process.env.PORT || 4000);
 

@@ -1,8 +1,8 @@
 const mongoose = require("../db/connection");
-// const bcrypt = require("bcrypt");
-// const saltRounds = 10;
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-const UserSchema = new mongoose.Schema({
+const User = new Schema({
   name: String,
   email: String,
   password: String,
@@ -17,9 +17,4 @@ const UserSchema = new mongoose.Schema({
   }
 });
 
-// UserSchema.pre("save", function(next) {
-//   this.password = bcrypt.hashSync(this.password, saltRounds);
-//   next();
-// });
-
-module.exports = mongoose.model("User", UserSchema);
+module.exports = mongoose.model("User", User);
