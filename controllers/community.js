@@ -84,4 +84,17 @@ router.put("/:id/meet", (req, res) => {
   });
 });
 
+router.put("/:id/meet/delete", (req, res) => {
+  const deleteMeet = { _id: req.body.body };
+  console.log(deleteMeet);
+  Community.findOneAndUpdate(
+    { _id: req.params.id },
+    { $pull: { meets: deleteMeet } }
+  ).then(community => {
+    community.save((err, community) => {
+      res.json(community);
+    });
+  });
+});
+
 module.exports = router;
