@@ -4,7 +4,7 @@ const parser = require("body-parser");
 const methodOverride = require("method-override");
 const passport = require("./config/passport")();
 const userController = require("./controllers/user.js");
-const songController = require("./controllers/community");
+const communityController = require("./controllers/community");
 
 const app = express();
 
