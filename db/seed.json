@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Konjo",
+    "email": "konjo@konjo.com",
+    "password": "777bmx777",
+    "interests": {
+      "one": "Music",
+      "two": "Art",
+      "three": "Technology"
+    },
+
+    "name": "Brian",
+    "email": "brian@Brian.com",
+    "password": "hellohello",
+    "interests": {
+      "one": "Biking",
+      "two": "Kyaking",
+      "three": "Running"
+    },
+
+    "name": "Tim",
+    "email": "tim@tim.com",
+    "password": "byebyebye",
+    "interests": {
+      "one": "Movies",
+      "two": "Television",
+      "three": "Dogs"
+    }
+  }
+]
