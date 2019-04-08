@@ -1,0 +1,52 @@
+All models based off user?
+Possible to do crud auth with separate models
+Models - Community, Meet, User, Comment?
+Stack - Node, express, mongo, react/react native, bootstrap
+Crud auth for community/meet - flash warnings - Only community creator can edit/delete community.
+Users can only create a meet when 3 members have joined.
+Only users who are members can create meets within a community.
+Bcrypt auth for password storage.
+
+Models
+
+User:
+Name: String
+Email: String
+Password: String
+Interests?: I1, I2, I3 (possible fuzzy search based off all user interests/smart drop down)
+Current location(to be replaced by put at each login: {
+Lat: Number
+Long: Number
+Elevation: Number (possible diff type)
+}
+
+Comment:
+Text: String
+Author: String (req.body.username)
+Date: Precise date/time?
+
+Meet:
+Name: String
+Description: String
+Date: String(Date picker) Different data type?
+Time: String(Time picker) different data type?
+Creator: String (req.body.username)
+
+
+Community:
+Name: String
+Description: String
+Category: String
+Creator: String (req.body.username)
+Members: [Users]
+Meets: [Meets]
+Comments?: [Comments]
+Location: {
+Lat: Number
+Long: Number
+Elevation: Number (possible diff type)
+}
+
+Views
+
+Index: sort by members < 3 & lat/long proximity compare to user location???
