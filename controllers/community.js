@@ -96,4 +96,19 @@ router.put("/:id/meet/delete", (req, res) => {
   });
 });
 
+router.put("/:id/adduser", (req, res) => {
+  const addUser = {
+    name: req.body.member
+  };
+  console.log(addUser);
+  Community.findOneAndUpdate(
+    { _id: req.params.id },
+    { $push: { members: addUser } }
+  ).then(community => {
+    community.save((err, community) => {
+      res.json(community);
+    });
+  });
+});
+
 module.exports = router;
