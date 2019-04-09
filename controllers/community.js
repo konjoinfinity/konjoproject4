@@ -111,4 +111,17 @@ router.put("/:id/adduser", (req, res) => {
   });
 });
 
+router.put("/:id/removeuser", (req, res) => {
+  const deleteMember = { _id: req.body.body };
+  console.log(deleteMember);
+  Community.findOneAndUpdate(
+    { _id: req.params.id },
+    { $pull: { members: deleteMember } }
+  ).then(community => {
+    community.save((err, community) => {
+      res.json(community);
+    });
+  });
+});
+
 module.exports = router;
