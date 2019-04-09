@@ -10,7 +10,6 @@ router.get("/", function(req, res) {
 });
 
 router.post("/", (req, res) => {
-  console.log(req.body);
   Community.create(req.body).then(konjo => res.redirect("/community"));
 });
 
