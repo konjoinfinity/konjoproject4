@@ -125,10 +125,17 @@ router.put("/:id/removeuser", (req, res) => {
     { _id: req.params.id },
     { $pull: { members: deleteMember } }
   ).then(community => {
-    community.save((err, community) => {
-      res.json(community);
-    });
+    community.save(community);
   });
+  Community.findOneAndUpdate(
+    { _id: req.params.id },
+    { $inc: { numberOfMembers: -1 } },
+    { new: true }
+  )
+    .then(member => {
+      res.json(member);
+    })
+    .catch(err => console.log(err));
 });
 
 module.exports = router;
