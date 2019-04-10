@@ -68,6 +68,18 @@ Community.deleteMany({})
       description: "For people who love running",
       category: "Athletic",
       creator: "konjo@konjo.com",
+      numberOfMembers: 4,
+      members: [
+        {
+          name: "julie@julie.com"
+        },
+        {
+          name: "brian@brian.com"
+        },
+        {
+          name: "james@james.com"
+        }
+      ],
       meets: {
         name: "Rock Creek Run",
         description: "Trail Running",
@@ -84,19 +96,31 @@ Community.create({
   description: "Meet other express developers",
   category: "Developers, Coding",
   creator: "julie@julie.com",
-  meets: {
-    name: "Espresso for Express Devs",
-    description: "Code and coffee",
-    location: "Clarendon",
-    time: "1000",
-    date: "030119",
-
-    name: "Learn to code with Express",
-    description: "Learn to Code",
-    location: "Clarendon",
-    time: "1200",
-    date: "080129"
-  }
+  numberOfMembers: 3,
+  members: [
+    {
+      name: "konjo@konjo.com"
+    },
+    {
+      name: "brian@brian.com"
+    }
+  ],
+  meets: [
+    {
+      name: "Espresso for Express Devs",
+      description: "Code and coffee",
+      location: "Clarendon",
+      time: "1000",
+      date: "030119"
+    },
+    {
+      name: "Learn to code with Express",
+      description: "Learn to Code",
+      location: "Clarendon",
+      time: "1200",
+      date: "030129"
+    }
+  ]
 }).then(console.log("Community Created"));
 
 Community.create({
@@ -104,6 +128,15 @@ Community.create({
   description: "For people who love live music",
   category: "Music",
   creator: "james@james.com",
+  numberOfMembers: 3,
+  members: [
+    {
+      name: "julie@julie.com"
+    },
+    {
+      name: "tim@tim.com"
+    }
+  ],
   meets: {
     name: "John Mayer",
     description: "John Mayer live in concert",
@@ -118,6 +151,15 @@ Community.create({
   description: "For Game of Thrones Fanatics",
   category: "Fantasy",
   creator: "brian@brian.com",
+  numberOfMembers: 3,
+  members: [
+    {
+      name: "julie@julie.com"
+    },
+    {
+      name: "tim@tim.com"
+    }
+  ],
   meets: {
     name: "Season 8 Debut",
     description: "Game of Thrones Season 8, the final season.",
@@ -132,6 +174,18 @@ Community.create({
   description: "For people who are die hard dog owners",
   category: "Dogs, Animals",
   creator: "tim@tim.com",
+  numberOfMembers: 4,
+  members: [
+    {
+      name: "julie@julie.com"
+    },
+    {
+      name: "brian@brian.com"
+    },
+    {
+      name: "konjo@konjo.com"
+    }
+  ],
   meets: {
     name: "Must love dogs group movie watch",
     description: "Watch must love dogs with other dog lovers",
@@ -146,6 +200,18 @@ Community.create({
   description: "Cat lovers only!",
   category: "Cats, Animals",
   creator: "konjo@konjo.com",
+  numberOfMembers: 4,
+  members: [
+    {
+      name: "julie@julie.com"
+    },
+    {
+      name: "brian@brian.com"
+    },
+    {
+      name: "james@james.com"
+    }
+  ],
   meets: {
     name: "Meet other cat lovers",
     description: "Talk cats with other people",
@@ -160,6 +226,15 @@ Community.create({
   description: "For people who can't sit still and love to move across borders",
   category: "Travel",
   creator: "julie@julie.com",
+  numberOfMembers: 3,
+  members: [
+    {
+      name: "brian@brian.com"
+    },
+    {
+      name: "james@james.com"
+    }
+  ],
   meets: {
     name: "Trip to France",
     description: "Tour the southern coast of France",
@@ -174,6 +249,18 @@ Community.create({
   description: "Chess lovers, get your chess on!",
   category: "Board Games",
   creator: "tim@tim.com",
+  numberOfMembers: 4,
+  members: [
+    {
+      name: "julie@julie.com"
+    },
+    {
+      name: "brian@brian.com"
+    },
+    {
+      name: "james@james.com"
+    }
+  ],
   meets: {
     name: "DC Chess Regionals",
     description: "Annual Regional DC Chess Competition",
@@ -188,6 +275,18 @@ Community.create({
   description: "For people who like to walk in the DC area",
   category: "Fitness, Walking",
   creator: "brian@brian.com",
+  numberOfMembers: 4,
+  members: [
+    {
+      name: "julie@julie.com"
+    },
+    {
+      name: "konjo@konjo.com"
+    },
+    {
+      name: "james@james.com"
+    }
+  ],
   meets: {
     name: "A walk around the mall",
     description: "A group walk around the National Mall",
@@ -202,6 +301,15 @@ Community.create({
   description: "For people who love to play music or sing",
   category: "Music, Jam",
   creator: "james@james.com",
+  numberOfMembers: 3,
+  members: [
+    {
+      name: "konjo@konjo.com"
+    },
+    {
+      name: "brian@brian.com"
+    }
+  ],
   meets: {
     name: "Soulfire Practice",
     description: "Band Practice",
@@ -216,6 +324,18 @@ Community.create({
   description: "Fans of the company Apple and the products they create",
   category: "Fitness, Walking",
   creator: "julie@julie.com",
+  numberOfMembers: 4,
+  members: [
+    {
+      name: "konjo@konjo.com"
+    },
+    {
+      name: "brian@brian.com"
+    },
+    {
+      name: "james@james.com"
+    }
+  ],
   meets: {
     name: "Apple keynoete address",
     description: "Watch the keynote address with other fans",
