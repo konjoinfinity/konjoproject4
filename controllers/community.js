@@ -5,7 +5,7 @@ const Community = require("../models/community");
 
 router.get("/", function(req, res) {
   Community.find({})
-    .sort({ members: 1 })
+    .sort({ numberOfMembers: 1 })
     .then(community => res.json(community));
 });
 

@@ -320,6 +320,40 @@ Community.create({
 }).then(console.log("Community Created"));
 
 Community.create({
+  name: "Random Activities",
+  description:
+    "For people who live life outside the box and enjoy doing different things",
+  category: "Random, Spontaneous",
+  creator: "julie@julie.com",
+  numberOfMembers: 2,
+  members: [
+    {
+      name: "konjo@konjo.com"
+    }
+  ]
+});
+
+Community.create({
+  name: "Karaoke Kooks",
+  description: "For people who are RockStars at heart",
+  category: "Music, Karaoke",
+  creator: "konjo@konjo.com"
+});
+
+Community.create({
+  name: "General Assembly WDI/SEI Alums",
+  description: "For WDI/SEI GA Alumni",
+  category: "Developers, Alumni",
+  creator: "konjo@konjo.com",
+  numberOfMembers: 2,
+  members: [
+    {
+      name: "tim@tim.com"
+    }
+  ]
+});
+
+Community.create({
   name: "Apple Fans",
   description: "Fans of the company Apple and the products they create",
   category: "Fitness, Walking",
