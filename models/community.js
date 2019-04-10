@@ -16,6 +16,7 @@ const Comment = new Schema({
 const Meet = new Schema({
   name: String,
   description: String,
+  location: String,
   date: String,
   time: String,
   creator: String

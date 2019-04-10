@@ -71,6 +71,7 @@ router.put("/:id/meet", (req, res) => {
   const createMeet = {
     name: req.body.meet.name,
     description: req.body.meet.description,
+    location: req.body.meet.location,
     date: req.body.meet.date,
     time: req.body.meet.time
   };
