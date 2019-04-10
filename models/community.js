@@ -28,6 +28,10 @@ const Community = new Schema({
   description: String,
   category: String,
   creator: String,
+  numberOfMembers: {
+    type: Number,
+    default: 1
+  },
   members: [Member],
   meets: [Meet],
   comments: [Comment],

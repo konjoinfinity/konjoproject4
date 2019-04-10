@@ -5,7 +5,7 @@ const Community = require("../models/community");
 
 router.get("/", function(req, res) {
   Community.find({})
-    // .sort({ votes: -1 })
+    .sort({ members: 1 })
     .then(community => res.json(community));
 });
 
@@ -105,10 +105,17 @@ router.put("/:id/adduser", (req, res) => {
     { _id: req.params.id },
     { $push: { members: addUser } }
   ).then(community => {
-    community.save((err, community) => {
-      res.json(community);
-    });
+    community.save(community);
   });
+  Community.findOneAndUpdate(
+    { _id: req.params.id },
+    { $inc: { numberOfMembers: 1 } },
+    { new: true }
+  )
+    .then(member => {
+      res.json(member);
+    })
+    .catch(err => console.log(err));
 });
 
 router.put("/:id/removeuser", (req, res) => {
