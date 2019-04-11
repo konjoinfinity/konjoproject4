@@ -4,20 +4,18 @@ const Community = require("../models/community");
 
 mongoose.Promise = Promise;
 
-User.deleteMany({})
-  .then(() => {
-    User.create({
-      name: "Konjo",
-      email: "konjo@konjo.com",
-      password: "777bmx777",
-      interests: {
-        one: "Music",
-        two: "Art",
-        three: "Technology"
-      }
-    });
-  })
-  .catch(err => console.log(err));
+User.deleteMany({}).then(() => {
+  User.create({
+    name: "Konjo",
+    email: "konjo@konjo.com",
+    password: "777bmx777",
+    interests: {
+      one: "Music",
+      two: "Art",
+      three: "Technology"
+    }
+  });
+});
 User.create({
   name: "Tim",
   email: "tim@tim.com",
@@ -27,7 +25,7 @@ User.create({
     two: "Television",
     three: "Dogs"
   }
-}).catch(err => console.log(err));
+});
 User.create({
   name: "James",
   email: "james@james.com",
@@ -37,7 +35,7 @@ User.create({
     two: "Reading",
     three: "Cats"
   }
-}).catch(err => console.log(err));
+});
 User.create({
   name: "Julie",
   email: "julie@julie.com",
@@ -47,7 +45,7 @@ User.create({
     two: "Dancing",
     three: "Fitness"
   }
-}).catch(err => console.log(err));
+});
 User.create({
   name: "Brian",
   email: "brian@brian.com",
@@ -57,37 +55,35 @@ User.create({
     two: "Kyaking",
     three: "Running"
   }
-}).catch(err => console.log(err));
+});
 
-Community.deleteMany({})
-  .then(() => {
-    Community.create({
-      name: "Running Club",
-      description: "For people who love running",
-      category: "Athletic",
-      creator: "konjo@konjo.com",
-      numberOfMembers: 4,
-      members: [
-        {
-          name: "julie@julie.com"
-        },
-        {
-          name: "brian@brian.com"
-        },
-        {
-          name: "james@james.com"
-        }
-      ],
-      meets: {
-        name: "Rock Creek Run",
-        description: "Trail Running",
-        location: "Rock Creek Park",
-        time: "0700",
-        date: "061419"
+Community.deleteMany({}).then(() => {
+  Community.create({
+    name: "Running Club",
+    description: "For people who love running",
+    category: "Athletic",
+    creator: "konjo@konjo.com",
+    numberOfMembers: 4,
+    members: [
+      {
+        name: "julie@julie.com"
+      },
+      {
+        name: "brian@brian.com"
+      },
+      {
+        name: "james@james.com"
       }
-    });
-  })
-  .catch(err => console.log(err));
+    ],
+    meets: {
+      name: "Rock Creek Run",
+      description: "Trail Running",
+      location: "Rock Creek Park",
+      time: "0700",
+      date: "061419"
+    }
+  });
+});
 
 Community.create({
   name: "Express Developers",
@@ -119,7 +115,7 @@ Community.create({
       date: "030129"
     }
   ]
-}).catch(err => console.log(err));
+});
 
 Community.create({
   name: "Live Music Lovers",
@@ -142,7 +138,7 @@ Community.create({
     time: "1900",
     date: "051419"
   }
-}).catch(err => console.log(err));
+});
 
 Community.create({
   name: "Game of Thrones Fans",
@@ -165,7 +161,7 @@ Community.create({
     time: "9pm",
     date: "April 14, 2019"
   }
-}).catch(err => console.log(err));
+});
 
 Community.create({
   name: "Must Love Dogs",
@@ -191,7 +187,7 @@ Community.create({
     time: "1300",
     date: "071719"
   }
-}).catch(err => console.log(err));
+});
 
 Community.create({
   name: "Cats are the Best",
@@ -217,7 +213,7 @@ Community.create({
     time: "1930",
     date: "061219"
   }
-}).catch(err => console.log(err));
+});
 
 Community.create({
   name: "Travel Enthusiasts",
@@ -240,7 +236,7 @@ Community.create({
     time: "1900",
     date: "050619"
   }
-}).catch(err => console.log(err));
+});
 
 Community.create({
   name: "Chess Enthusiasts",
@@ -266,7 +262,7 @@ Community.create({
     time: "1200",
     date: "050819"
   }
-}).catch(err => console.log(err));
+});
 
 Community.create({
   name: "DC Walkers",
@@ -292,7 +288,7 @@ Community.create({
     time: "1100",
     date: "050219"
   }
-}).catch(err => console.log(err));
+});
 
 Community.create({
   name: "DC Musicians",
@@ -315,7 +311,7 @@ Community.create({
     time: "1930",
     date: "Monday Weekly"
   }
-}).catch(err => console.log(err));
+});
 
 Community.create({
   name: "Random Activities",
@@ -329,14 +325,14 @@ Community.create({
       name: "konjo@konjo.com"
     }
   ]
-}).catch(err => console.log(err));
+});
 
 Community.create({
   name: "Karaoke Kooks",
   description: "For people who are RockStars at heart",
   category: "Music, Karaoke",
   creator: "konjo@konjo.com"
-}).catch(err => console.log(err));
+});
 
 Community.create({
   name: "General Assembly WDI/SEI Alums",
@@ -349,7 +345,7 @@ Community.create({
       name: "tim@tim.com"
     }
   ]
-}).catch(err => console.log(err));
+});
 
 Community.create({
   name: "Apple Fans",
@@ -375,4 +371,4 @@ Community.create({
     time: "2000",
     date: "081019"
   }
-}).catch(err => console.log(err));
+});
