@@ -18,47 +18,56 @@ User.deleteMany({})
       }
     });
   })
-  .then(console.log("User Created")),
-  User.create({
-    name: "Tim",
-    email: "tim@tim.com",
-    password: "byebyebye",
-    interests: {
-      one: "Movies",
-      two: "Television",
-      three: "Dogs"
-    }
-  }).then(console.log("User Created")),
-  User.create({
-    name: "James",
-    email: "james@james.com",
-    password: "hihihi",
-    interests: {
-      one: "Walking",
-      two: "Reading",
-      three: "Cats"
-    }
-  }).then(console.log("User Created")),
-  User.create({
-    name: "Julie",
-    email: "julie@julie.com",
-    password: "whywhywhy",
-    interests: {
-      one: "Fashion",
-      two: "Dancing",
-      three: "Fitness"
-    }
-  }).then(console.log("User Created")),
-  User.create({
-    name: "Brian",
-    email: "brian@brian.com",
-    password: "hellohello",
-    interests: {
-      one: "Biking",
-      two: "Kyaking",
-      three: "Running"
-    }
-  }).then(console.log("User Created"));
+  .then(console.log("User Created"))
+  .catch(err => console.log(err));
+User.create({
+  name: "Tim",
+  email: "tim@tim.com",
+  password: "byebyebye",
+  interests: {
+    one: "Movies",
+    two: "Television",
+    three: "Dogs"
+  }
+})
+  .then(console.log("User Created"))
+  .catch(err => console.log(err));
+User.create({
+  name: "James",
+  email: "james@james.com",
+  password: "hihihi",
+  interests: {
+    one: "Walking",
+    two: "Reading",
+    three: "Cats"
+  }
+})
+  .then(console.log("User Created"))
+  .catch(err => console.log(err));
+User.create({
+  name: "Julie",
+  email: "julie@julie.com",
+  password: "whywhywhy",
+  interests: {
+    one: "Fashion",
+    two: "Dancing",
+    three: "Fitness"
+  }
+})
+  .then(console.log("User Created"))
+  .catch(err => console.log(err));
+User.create({
+  name: "Brian",
+  email: "brian@brian.com",
+  password: "hellohello",
+  interests: {
+    one: "Biking",
+    two: "Kyaking",
+    three: "Running"
+  }
+})
+  .then(console.log("User Created"))
+  .catch(err => console.log(err));
 
 Community.deleteMany({})
   .then(() => {
@@ -89,7 +98,8 @@ Community.deleteMany({})
       }
     });
   })
-  .then(console.log("Community Created"));
+  .then(console.log("Community Created"))
+  .catch(err => console.log(err));
 
 Community.create({
   name: "Express Developers",
@@ -121,7 +131,9 @@ Community.create({
       date: "030129"
     }
   ]
-}).then(console.log("Community Created"));
+})
+  .then(console.log("Community Created"))
+  .catch(err => console.log(err));
 
 Community.create({
   name: "Live Music Lovers",
@@ -144,7 +156,9 @@ Community.create({
     time: "1900",
     date: "051419"
   }
-}).then(console.log("Community Created"));
+})
+  .then(console.log("Community Created"))
+  .catch(err => console.log(err));
 
 Community.create({
   name: "Game of Thrones Fans",
@@ -167,7 +181,9 @@ Community.create({
     time: "9pm",
     date: "April 14, 2019"
   }
-}).then(console.log("Community Created"));
+})
+  .then(console.log("Community Created"))
+  .catch(err => console.log(err));
 
 Community.create({
   name: "Must Love Dogs",
@@ -193,7 +209,9 @@ Community.create({
     time: "1300",
     date: "071719"
   }
-}).then(console.log("Community Created"));
+})
+  .then(console.log("Community Created"))
+  .catch(err => console.log(err));
 
 Community.create({
   name: "Cats are the Best",
@@ -219,7 +237,9 @@ Community.create({
     time: "1930",
     date: "061219"
   }
-}).then(console.log("Community Created"));
+})
+  .then(console.log("Community Created"))
+  .catch(err => console.log(err));
 
 Community.create({
   name: "Travel Enthusiasts",
@@ -242,7 +262,9 @@ Community.create({
     time: "1900",
     date: "050619"
   }
-}).then(console.log("Community Created"));
+})
+  .then(console.log("Community Created"))
+  .catch(err => console.log(err));
 
 Community.create({
   name: "Chess Enthusiasts",
@@ -268,7 +290,9 @@ Community.create({
     time: "1200",
     date: "050819"
   }
-}).then(console.log("Community Created"));
+})
+  .then(console.log("Community Created"))
+  .catch(err => console.log(err));
 
 Community.create({
   name: "DC Walkers",
@@ -294,7 +318,9 @@ Community.create({
     time: "1100",
     date: "050219"
   }
-}).then(console.log("Community Created"));
+})
+  .then(console.log("Community Created"))
+  .catch(err => console.log(err));
 
 Community.create({
   name: "DC Musicians",
@@ -317,7 +343,9 @@ Community.create({
     time: "1930",
     date: "Monday Weekly"
   }
-}).then(console.log("Community Created"));
+})
+  .then(console.log("Community Created"))
+  .catch(err => console.log(err));
 
 Community.create({
   name: "Random Activities",
@@ -331,14 +359,18 @@ Community.create({
       name: "konjo@konjo.com"
     }
   ]
-});
+})
+  .then(console.log("Community Created"))
+  .catch(err => console.log(err));
 
 Community.create({
   name: "Karaoke Kooks",
   description: "For people who are RockStars at heart",
   category: "Music, Karaoke",
   creator: "konjo@konjo.com"
-});
+})
+  .then(console.log("Community Created"))
+  .catch(err => console.log(err));
 
 Community.create({
   name: "General Assembly WDI/SEI Alums",
@@ -351,7 +383,9 @@ Community.create({
       name: "tim@tim.com"
     }
   ]
-});
+})
+  .then(console.log("Community Created"))
+  .catch(err => console.log(err));
 
 Community.create({
   name: "Apple Fans",
@@ -377,4 +411,6 @@ Community.create({
     time: "2000",
     date: "081019"
   }
-});
+})
+  .then(console.log("Community Created"))
+  .catch(err => console.log(err));
