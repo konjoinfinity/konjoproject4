@@ -376,3 +376,5 @@ Community.create({
     date: "081019"
   }
 }).then(console.log("Community Created"));
+
+process.exit();
