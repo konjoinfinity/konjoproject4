@@ -50,3 +50,53 @@ Elevation: Number (possible diff type)
 Views
 
 Index: sort by members < 3 & lat/long proximity compare to user location???
+
+How to sort by members: add memberAmount to community and $inc: 1 (default: 1)
+
+Sort -1 for all communities
+
+Sort -1 for growing communities
+
+Max of 2 for growing communities
+
+
+
+Conditional rendering for comments (members only)
+
+
+
+
+
+Basic phone version of app
+
+Crud
+
+New - Have email field for creator (use one email)
+
+AsyncStorage? Write asynchronous methods
+
+Hard code username/email into state
+
+Username != this.state.community.creator &&
+
+username === “” && (true/false value? For username) Should work for community owner???
+
+
+
+/ homepage welcome message loggedin false conditional rendering - use cat/dog emoticon code
+
+
+
+My communities index based on username/email
+
+
+
+Add creator field for meets/comments and conditional rendering to delete for creator only
+
+
+
+Styling - Text (centering, sizing, font)
+
+
+
+Check all conditional rendering for meets/comments - meets title on phone app(owner and member before 3 members), meets/title on desktop app
