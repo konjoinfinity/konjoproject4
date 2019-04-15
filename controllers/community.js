@@ -14,12 +14,6 @@ router.post("/", (req, res) => {
   Community.create(req.body).then(konjo => res.redirect("/community"));
 });
 
-router.get("/mycommunities", (req, res) => {
-  Community.find({})
-    .sort({ numberOfMembers: 1 })
-    .then(community => res.json(community));
-});
-
 router.get("/:id", (req, res) => {
   Community.findOne({ _id: req.params.id }).then(community =>
     res.json(community)
