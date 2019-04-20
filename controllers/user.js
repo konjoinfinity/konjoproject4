@@ -25,19 +25,26 @@ router.post("/signup", (req, res) => {
               token: token
             });
           } else {
-            res.sendStatus(401);
+            res.json({
+              error: "Error in user creation"
+            });
           }
         });
       } else {
-        res.sendStatus(401);
+        res.json({
+          error: "Email has already been registered"
+        });
       }
     });
   } else {
-    res.sendStatus(401);
+    res.json({
+      error: "Please enter both email and password"
+    });
   }
 });
 
 router.post("/login", (req, res) => {
+  console.log(req.body);
   if (req.body.email && req.body.password) {
     User.findOne({ email: req.body.email }).then(user => {
       if (user) {
@@ -50,14 +57,20 @@ router.post("/login", (req, res) => {
             token: token
           });
         } else {
-          res.sendStatus(401);
+          res.json({
+            error: "Password does not match email account"
+          });
         }
       } else {
-        res.sendStatus(401);
+        res.json({
+          error: "Email has not been registered"
+        });
       }
     });
   } else {
-    res.sendStatus(401);
+    res.json({
+      error: "Please enter both email and password"
+    });
   }
 });
 
