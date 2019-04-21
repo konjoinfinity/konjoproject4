@@ -5,19 +5,20 @@ const Community = require("../models/community");
 mongoose.Promise = Promise;
 
 User.deleteMany({})
-  .then(() => {
-    User.create({
-      name: "Konjo",
-      email: "konjo@konjo.com",
-      password: "777bmx777",
-      interests: {
-        one: "Music",
-        two: "Art",
-        three: "Technology"
-      }
-    }).then(console.log("User Created"));
-  })
+  .then(() => {})
   .then(console.log("Users Deleted"));
+
+User.create({
+  name: "Konjo",
+  email: "konjo@konjo.com",
+  password: "777bmx777",
+  interests: {
+    one: "Music",
+    two: "Art",
+    three: "Technology"
+  }
+}).then(console.log("User Created"));
+
 User.create({
   name: "Tim",
   email: "tim@tim.com",
@@ -28,6 +29,7 @@ User.create({
     three: "Dogs"
   }
 }).then(console.log("User Created"));
+
 User.create({
   name: "James",
   email: "james@james.com",
@@ -38,6 +40,7 @@ User.create({
     three: "Cats"
   }
 }).then(console.log("User Created"));
+
 User.create({
   name: "Julie",
   email: "julie@julie.com",
@@ -48,6 +51,7 @@ User.create({
     three: "Fitness"
   }
 }).then(console.log("User Created"));
+
 User.create({
   name: "Brian",
   email: "brian@brian.com",
@@ -60,34 +64,35 @@ User.create({
 }).then(console.log("User Created"));
 
 Community.deleteMany({})
-  .then(() => {
-    Community.create({
-      name: "Running Club",
-      description: "For people who love running",
-      category: "Athletic",
-      creator: "konjo@konjo.com",
-      numberOfMembers: 4,
-      members: [
-        {
-          name: "julie@julie.com"
-        },
-        {
-          name: "brian@brian.com"
-        },
-        {
-          name: "james@james.com"
-        }
-      ],
-      meets: {
-        name: "Rock Creek Run",
-        description: "Trail Running",
-        location: "Rock Creek Park",
-        time: "0700",
-        date: "061419"
-      }
-    }).then(console.log("Community Created"));
-  })
-  .then(console.log("Community Deleted"));
+  .then(() => {})
+  .then(console.log("Communities Deleted"));
+
+Community.create({
+  name: "Running Club",
+  description: "For people who love running",
+  category: "Athletic",
+  creator: "konjo@konjo.com",
+  numberOfMembers: 4,
+  members: [
+    {
+      name: "julie@julie.com"
+    },
+    {
+      name: "brian@brian.com"
+    },
+    {
+      name: "james@james.com"
+    }
+  ],
+  meets: {
+    name: "Rock Creek Run",
+    description: "Trail Running",
+    location: "Rock Creek Park",
+    time: "0700",
+    date: "061419",
+    creator: "brian@brian.com"
+  }
+}).then(console.log("Community Created"));
 
 Community.create({
   name: "Express Developers",
@@ -109,14 +114,16 @@ Community.create({
       description: "Code and coffee",
       location: "Clarendon",
       time: "1000",
-      date: "030119"
+      date: "030119",
+      creator: "konjo@konjo.com"
     },
     {
       name: "Learn to code with Express",
       description: "Learn to Code",
       location: "Clarendon",
       time: "1200",
-      date: "030129"
+      date: "030129",
+      creator: "brian@brian.com"
     }
   ]
 }).then(console.log("Community Created"));
@@ -140,7 +147,8 @@ Community.create({
     description: "John Mayer live in concert",
     location: "Capital One Arena",
     time: "1900",
-    date: "051419"
+    date: "051419",
+    creator: "julie@julie.com"
   }
 }).then(console.log("Community Created"));
 
@@ -163,7 +171,8 @@ Community.create({
     description: "Game of Thrones Season 8, the final season.",
     location: "Television",
     time: "9pm",
-    date: "April 14, 2019"
+    date: "April 14, 2019",
+    creator: "brian@brian.com"
   }
 }).then(console.log("Community Created"));
 
@@ -189,7 +198,8 @@ Community.create({
     description: "Watch must love dogs with other dog lovers",
     location: "Ballston theater",
     time: "1300",
-    date: "071719"
+    date: "071719",
+    creator: "brian@brian.com"
   }
 }).then(console.log("Community Created"));
 
@@ -215,7 +225,8 @@ Community.create({
     description: "Talk cats with other people",
     location: "Starbucks",
     time: "1930",
-    date: "061219"
+    date: "061219",
+    creator: "james@james.com"
   }
 }).then(console.log("Community Created"));
 
@@ -238,7 +249,8 @@ Community.create({
     description: "Tour the southern coast of France",
     location: "Nice",
     time: "1900",
-    date: "050619"
+    date: "050619",
+    creator: "julie@julie.com"
   }
 }).then(console.log("Community Created"));
 
@@ -264,7 +276,8 @@ Community.create({
     description: "Annual Regional DC Chess Competition",
     location: "Arlington Public Library",
     time: "1200",
-    date: "050819"
+    date: "050819",
+    creator: "tim@tim.com"
   }
 }).then(console.log("Community Created"));
 
@@ -290,7 +303,8 @@ Community.create({
     description: "A group walk around the National Mall",
     location: "Washington Monument",
     time: "1100",
-    date: "050219"
+    date: "050219",
+    creator: "konjo@konjo.com"
   }
 }).then(console.log("Community Created"));
 
@@ -313,7 +327,8 @@ Community.create({
     description: "Band Practice",
     location: "The Allards",
     time: "1930",
-    date: "Monday Weekly"
+    date: "Monday Weekly",
+    creator: "james@james.com"
   }
 }).then(console.log("Community Created"));
 
@@ -373,7 +388,8 @@ Community.create({
     description: "Watch the keynote address with other fans",
     location: "John's house",
     time: "2000",
-    date: "081019"
+    date: "081019",
+    creator: "julie@julie.com"
   }
 }).then(console.log("Community Created"));
 

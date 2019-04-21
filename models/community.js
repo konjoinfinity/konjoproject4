@@ -8,7 +8,8 @@ const Member = new Schema({
 });
 
 const Comment = new Schema({
-  text: String
+  text: String,
+  creator: String
 });
 
 // Creator -- req.body.email

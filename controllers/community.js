@@ -42,7 +42,8 @@ router.delete("/:id", (req, res) => {
 
 router.put("/:id/comment", (req, res) => {
   const createComment = {
-    text: req.body.comment
+    text: req.body.comment,
+    creator: req.body.creator
   };
   console.log(createComment);
   Community.findOneAndUpdate(
@@ -74,7 +75,8 @@ router.put("/:id/meet", (req, res) => {
     description: req.body.meet.description,
     location: req.body.meet.location,
     date: req.body.meet.date,
-    time: req.body.meet.time
+    time: req.body.meet.time,
+    creator: req.body.meet.creator
   };
   console.log(createMeet);
   Community.findOneAndUpdate(
