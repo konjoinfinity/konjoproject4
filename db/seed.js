@@ -5,19 +5,19 @@ const Community = require("../models/community");
 mongoose.Promise = Promise;
 
 User.deleteMany({})
-  .then(() => {})
+  .then(() => {
+    User.create({
+      name: "Konjo",
+      email: "konjo@konjo.com",
+      password: "777bmx777",
+      interests: {
+        one: "Music",
+        two: "Art",
+        three: "Technology"
+      }
+    }).then(console.log("User Created"));
+  })
   .then(console.log("Users Deleted"));
-
-User.create({
-  name: "Konjo",
-  email: "konjo@konjo.com",
-  password: "777bmx777",
-  interests: {
-    one: "Music",
-    two: "Art",
-    three: "Technology"
-  }
-}).then(console.log("User Created"));
 
 User.create({
   name: "Tim",
@@ -64,35 +64,35 @@ User.create({
 }).then(console.log("User Created"));
 
 Community.deleteMany({})
-  .then(() => {})
+  .then(() => {
+    Community.create({
+      name: "Running Club",
+      description: "For people who love running",
+      category: "Athletic",
+      creator: "konjo@konjo.com",
+      numberOfMembers: 4,
+      members: [
+        {
+          name: "julie@julie.com"
+        },
+        {
+          name: "brian@brian.com"
+        },
+        {
+          name: "james@james.com"
+        }
+      ],
+      meets: {
+        name: "Rock Creek Run",
+        description: "Trail Running",
+        location: "Rock Creek Park",
+        time: "0700",
+        date: "061419",
+        creator: "brian@brian.com"
+      }
+    }).then(console.log("Community Created"));
+  })
   .then(console.log("Communities Deleted"));
-
-Community.create({
-  name: "Running Club",
-  description: "For people who love running",
-  category: "Athletic",
-  creator: "konjo@konjo.com",
-  numberOfMembers: 4,
-  members: [
-    {
-      name: "julie@julie.com"
-    },
-    {
-      name: "brian@brian.com"
-    },
-    {
-      name: "james@james.com"
-    }
-  ],
-  meets: {
-    name: "Rock Creek Run",
-    description: "Trail Running",
-    location: "Rock Creek Park",
-    time: "0700",
-    date: "061419",
-    creator: "brian@brian.com"
-  }
-}).then(console.log("Community Created"));
 
 Community.create({
   name: "Express Developers",
