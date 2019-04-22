@@ -66,7 +66,7 @@ User.create({
 Community.deleteMany({})
   .then(() => {
     Community.create({
-      name: "Running Club",
+      name: "Running Club 🏃🏻‍",
       description: "For people who love running",
       category: "Athletic",
       creator: "konjo@konjo.com",
@@ -95,7 +95,7 @@ Community.deleteMany({})
   .then(console.log("Communities Deleted"));
 
 Community.create({
-  name: "Express Developers",
+  name: "Express Developers 💻",
   description: "Meet other express developers",
   category: "Developers, Coding",
   creator: "julie@julie.com",
@@ -129,7 +129,7 @@ Community.create({
 }).then(console.log("Community Created"));
 
 Community.create({
-  name: "Live Music Lovers",
+  name: "Live Music Lovers 🎸",
   description: "For people who love live music",
   category: "Music",
   creator: "james@james.com",
@@ -153,7 +153,7 @@ Community.create({
 }).then(console.log("Community Created"));
 
 Community.create({
-  name: "Game of Thrones Fans",
+  name: "Game of Thrones Fans 📺",
   description: "For Game of Thrones Fanatics",
   category: "Fantasy",
   creator: "brian@brian.com",
@@ -177,7 +177,7 @@ Community.create({
 }).then(console.log("Community Created"));
 
 Community.create({
-  name: "Must Love Dogs",
+  name: "Must Love Dogs 🐶",
   description: "For people who are die hard dog owners",
   category: "Dogs, Animals",
   creator: "tim@tim.com",
@@ -204,7 +204,7 @@ Community.create({
 }).then(console.log("Community Created"));
 
 Community.create({
-  name: "Cats are the Best",
+  name: "Cats are the Best 🐈",
   description: "Cat lovers only!",
   category: "Cats, Animals",
   creator: "konjo@konjo.com",
@@ -231,7 +231,7 @@ Community.create({
 }).then(console.log("Community Created"));
 
 Community.create({
-  name: "Travel Enthusiasts",
+  name: "Travel Enthusiasts ✈️",
   description: "For people who can't sit still and love to move across borders",
   category: "Travel",
   creator: "julie@julie.com",
@@ -255,7 +255,7 @@ Community.create({
 }).then(console.log("Community Created"));
 
 Community.create({
-  name: "Chess Enthusiasts",
+  name: "Chess Enthusiasts ♟",
   description: "Chess lovers, get your chess on!",
   category: "Board Games",
   creator: "tim@tim.com",
@@ -282,7 +282,7 @@ Community.create({
 }).then(console.log("Community Created"));
 
 Community.create({
-  name: "DC Walkers",
+  name: "DC Walkers 🚶🏻‍",
   description: "For people who like to walk in the DC area",
   category: "Fitness, Walking",
   creator: "brian@brian.com",
@@ -309,7 +309,7 @@ Community.create({
 }).then(console.log("Community Created"));
 
 Community.create({
-  name: "DC Musicians",
+  name: "DC Musicians 🎵",
   description: "For people who love to play music or sing",
   category: "Music, Jam",
   creator: "james@james.com",
@@ -333,7 +333,7 @@ Community.create({
 }).then(console.log("Community Created"));
 
 Community.create({
-  name: "Random Activities",
+  name: "Random Activities ❔",
   description:
     "For people who live life outside the box and enjoy doing different things",
   category: "Random, Spontaneous",
@@ -347,14 +347,14 @@ Community.create({
 }).then(console.log("Community Created"));
 
 Community.create({
-  name: "Karaoke Kooks",
+  name: "Karaoke Kooks 🎤",
   description: "For people who are RockStars at heart",
   category: "Music, Karaoke",
   creator: "konjo@konjo.com"
 }).then(console.log("Community Created"));
 
 Community.create({
-  name: "General Assembly WDI/SEI Alums",
+  name: "General Assembly WDI/SEI Alums 🎓",
   description: "For WDI/SEI GA Alumni",
   category: "Developers, Alumni",
   creator: "konjo@konjo.com",
@@ -367,7 +367,7 @@ Community.create({
 }).then(console.log("Community Created"));
 
 Community.create({
-  name: "Apple Fans",
+  name: "Apple Fans 👨🏻‍💻👩🏻‍💻",
   description: "Fans of the company Apple and the products they create",
   category: "Fitness, Walking",
   creator: "julie@julie.com",
