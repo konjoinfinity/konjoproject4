@@ -392,5 +392,3 @@ Community.create({
     creator: "julie@julie.com"
   }
 }).then(console.log("Community Created"));
-
-process.exit();
