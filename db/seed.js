@@ -89,6 +89,10 @@ Community.deleteMany({})
         time: "0700",
         date: "061419",
         creator: "brian@brian.com"
+      },
+      comments: {
+        text: "Marathon here we come!",
+        creator: "james@james.com"
       }
     }).then(console.log("Community Created"));
   })
@@ -125,6 +129,16 @@ Community.create({
       date: "030129",
       creator: "brian@brian.com"
     }
+  ],
+  comments: [
+    {
+      text: "Node!!!",
+      creator: "brian@brian.com"
+    },
+    {
+      text: "Express!!!",
+      creator: "konjo@konjo.com"
+    }
   ]
 }).then(console.log("Community Created"));
 
@@ -148,6 +162,10 @@ Community.create({
     location: "Capital One Arena",
     time: "1900",
     date: "051419",
+    creator: "julie@julie.com"
+  },
+  comments: {
+    text: "Get your groove on",
     creator: "julie@julie.com"
   }
 }).then(console.log("Community Created"));
@@ -173,6 +191,10 @@ Community.create({
     time: "9pm",
     date: "April 14, 2019",
     creator: "brian@brian.com"
+  },
+  comments: {
+    text: "You know nothing Jon Snow...",
+    creator: "tim@tim.com"
   }
 }).then(console.log("Community Created"));
 
@@ -199,6 +221,10 @@ Community.create({
     location: "Ballston theater",
     time: "1300",
     date: "071719",
+    creator: "brian@brian.com"
+  },
+  comments: {
+    text: "Woof!",
     creator: "brian@brian.com"
   }
 }).then(console.log("Community Created"));
@@ -227,6 +253,10 @@ Community.create({
     time: "1930",
     date: "061219",
     creator: "james@james.com"
+  },
+  comments: {
+    text: "Meow!",
+    creator: "brian@brian.com"
   }
 }).then(console.log("Community Created"));
 
@@ -250,6 +280,10 @@ Community.create({
     location: "Nice",
     time: "1900",
     date: "050619",
+    creator: "julie@julie.com"
+  },
+  comments: {
+    text: "Anyone up for South Africa?",
     creator: "julie@julie.com"
   }
 }).then(console.log("Community Created"));
@@ -278,6 +312,10 @@ Community.create({
     time: "1200",
     date: "050819",
     creator: "tim@tim.com"
+  },
+  comments: {
+    text: "Checkmate...",
+    creator: "tim@tim.com"
   }
 }).then(console.log("Community Created"));
 
@@ -305,6 +343,10 @@ Community.create({
     time: "1100",
     date: "050219",
     creator: "konjo@konjo.com"
+  },
+  comments: {
+    text: "Lets walk.",
+    creator: "konjo@konjo.com"
   }
 }).then(console.log("Community Created"));
 
@@ -329,6 +371,10 @@ Community.create({
     time: "1930",
     date: "Monday Weekly",
     creator: "james@james.com"
+  },
+  comments: {
+    text: "Soulfire!!!",
+    creator: "konjo@konjo.com"
   }
 }).then(console.log("Community Created"));
 
@@ -343,7 +389,11 @@ Community.create({
     {
       name: "konjo@konjo.com"
     }
-  ]
+  ],
+  comments: {
+    text: "Hi Julie",
+    creator: "konjo@konjo.com"
+  }
 }).then(console.log("Community Created"));
 
 Community.create({
@@ -389,6 +439,10 @@ Community.create({
     location: "John's house",
     time: "2000",
     date: "081019",
-    creator: "julie@julie.com"
+    creator: "julie@julie.com",
+    comments: {
+      text: "React Native kicks ass",
+      creator: "konjo@konjo.com"
+    }
   }
 }).then(console.log("Community Created"));
