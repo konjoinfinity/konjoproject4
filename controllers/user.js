@@ -4,7 +4,6 @@ const passport = require("../config/passport");
 const config = require("../config/config");
 const mongoose = require("../models/user");
 const User = mongoose.model("User");
-
 const router = express.Router();
 
 router.post("/signup", (req, res) => {
@@ -44,11 +43,11 @@ router.post("/signup", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
-  console.log(req.body);
   if (req.body.email && req.body.password) {
     User.findOne({ email: req.body.email }).then(user => {
       if (user) {
-        if (user.password === req.body.password) {
+        let success = user.comparePassword(req.body.password, user.password);
+        if (success === true) {
           var payload = {
             id: user.id
           };
