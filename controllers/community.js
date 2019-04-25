@@ -10,7 +10,6 @@ router.get("/", function(req, res) {
 });
 
 router.post("/", (req, res) => {
-  console.log(req.body);
   Community.create(req.body).then(konjo => res.redirect("/community"));
 });
 
@@ -21,7 +20,6 @@ router.get("/:id", (req, res) => {
 });
 
 router.put("/:id", (req, res) => {
-  console.log(req.params.id);
   Community.findOne({
     _id: req.params.id
   }).then(community => {
@@ -45,7 +43,6 @@ router.put("/:id/comment", (req, res) => {
     text: req.body.comment,
     creator: req.body.creator
   };
-  console.log(createComment);
   Community.findOneAndUpdate(
     { _id: req.params.id },
     { $push: { comments: createComment } }
@@ -58,7 +55,6 @@ router.put("/:id/comment", (req, res) => {
 
 router.put("/:id/delete", (req, res) => {
   const deleteComment = { _id: req.body.body };
-  console.log(deleteComment);
   Community.findOneAndUpdate(
     { _id: req.params.id },
     { $pull: { comments: deleteComment } }
@@ -78,7 +74,6 @@ router.put("/:id/meet", (req, res) => {
     time: req.body.meet.time,
     creator: req.body.meet.creator
   };
-  console.log(createMeet);
   Community.findOneAndUpdate(
     { _id: req.params.id },
     { $push: { meets: createMeet } }
@@ -89,7 +84,6 @@ router.put("/:id/meet", (req, res) => {
 
 router.put("/:id/meet/delete", (req, res) => {
   const deleteMeet = { _id: req.body.body };
-  console.log(deleteMeet);
   Community.findOneAndUpdate(
     { _id: req.params.id },
     { $pull: { meets: deleteMeet } }
@@ -104,7 +98,6 @@ router.put("/:id/adduser", (req, res) => {
   const addUser = {
     name: req.body.member
   };
-  console.log(addUser);
   Community.findOneAndUpdate(
     { _id: req.params.id },
     { $push: { members: addUser } }
@@ -124,7 +117,6 @@ router.put("/:id/adduser", (req, res) => {
 
 router.put("/:id/removeuser", (req, res) => {
   const deleteMember = { _id: req.body.body };
-  console.log(deleteMember);
   Community.findOneAndUpdate(
     { _id: req.params.id },
     { $pull: { members: deleteMember } }
