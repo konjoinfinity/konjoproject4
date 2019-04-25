@@ -519,3 +519,77 @@ Community.create({
     creator: "tim@tim.com"
   }
 }).then(console.log("Community Created"));
+
+Community.create({
+  name: "Chuck TV Show Fans 👨🏻‍👩✈️💵💣🔫",
+  description: "For fans of the spy comedy TV show",
+  category: "Television",
+  creator: "konjo@konjo.com",
+  comments: {
+    text: "Sarah is super hot!‍",
+    creator: "konjo@konjo.com"
+  }
+}).then(console.log("Community Created"));
+
+Community.create({
+  name: "Harry Potter Fans 📚🎞🎥",
+  description: "For people who love the Wizarding World Fandom",
+  category: "Books, Movies, Fandom",
+  creator: "julie@julie.com",
+  numberOfMembers: 3,
+  members: [
+    {
+      name: "tim@tim.com"
+    },
+    {
+      name: "konjo@konjo.com"
+    }
+  ],
+  meets: {
+    name: "Trip to Universal Studios Wizarding World",
+    description: "A group trip to the Harry Potter theme park",
+    location: "Orlando, FL",
+    time: "0900",
+    date: "July 20th 2019",
+    creator: "tim@tim.com"
+  },
+  comments: {
+    text: "Hungarian Horntail 🐉🐲",
+    creator: "konjo@konjo.com"
+  }
+}).then(console.log("Community Created"));
+
+Community.create({
+  name: "Art Appreciation Group 🖼",
+  description: "For people passionate about the Arts",
+  category: "Arts",
+  creator: "james@james.com",
+  comments: {
+    text: "Anyone up for painting? 🎨🖌‍",
+    creator: "james@james.com"
+  }
+}).then(console.log("Community Created"));
+
+Community.create({
+  name: "Book Club 📚",
+  description: "For people who love to read",
+  category: "Books, Reading",
+  creator: "konjo@konjo.com",
+  numberOfMembers: 3,
+  members: [
+    {
+      name: "tim@tim.com"
+    },
+    {
+      name: "julie@julie.com"
+    }
+  ],
+  meets: {
+    name: "Weekly book discussion",
+    description: "A discussion about the current book club book",
+    location: "Peets Coffee",
+    time: "7pm",
+    date: "Weekly",
+    creator: "brian@brian.com"
+  }
+}).then(console.log("Community Created"));
