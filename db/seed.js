@@ -434,15 +434,88 @@ Community.create({
     }
   ],
   meets: {
-    name: "Apple keynoete address",
+    name: "Apple keynote address",
     description: "Watch the keynote address with other fans",
     location: "John's house",
     time: "2000",
     date: "081019",
-    creator: "julie@julie.com",
-    comments: {
-      text: "React Native kicks ass",
-      creator: "konjo@konjo.com"
+    creator: "julie@julie.com"
+  },
+  comments: {
+    text: "React Native kicks ass",
+    creator: "konjo@konjo.com"
+  }
+}).then(console.log("Community Created"));
+
+Community.create({
+  name: "Beer Lovers 🍺",
+  description: "For people who like to drink beer",
+  category: "Beer, Drinks",
+  creator: "konjo@konjo.com",
+  numberOfMembers: 3,
+  members: [
+    {
+      name: "james@james.com"
+    },
+    {
+      name: "julie@julie.com"
     }
+  ],
+  meets: {
+    name: "Beer Pub Crawl",
+    description: "A walking tour between pubs",
+    location: "Post Pub",
+    time: "1900",
+    date: "071519",
+    creator: "julie@julie.com"
+  },
+  comments: {
+    text: "Ballast Point 🍻",
+    creator: "konjo@konjo.com"
+  }
+}).then(console.log("Community Created"));
+
+Community.create({
+  name: "Pickup Basketball 🏀",
+  description: "Who wants to play pick up?",
+  category: "Sports, B-Ball",
+  creator: "brian@brian.com",
+  numberOfMembers: 2,
+  members: [
+    {
+      name: "tim@tim.com"
+    }
+  ],
+  comments: {
+    text: "Hoops! ⛹🏻‍",
+    creator: "brian@brian.com"
+  }
+}).then(console.log("Community Created"));
+
+Community.create({
+  name: "Ice Hockey Fans 🏒🥅",
+  description: "For fans of Ice Hockey",
+  category: "Sports, Hockey",
+  creator: "james@james.com",
+  numberOfMembers: 2,
+  members: [
+    {
+      name: "brian@brian.com"
+    }
+  ],
+  comments: {
+    text: "Goal!!! 🥅‍",
+    creator: "brian@brian.com"
+  }
+}).then(console.log("Community Created"));
+
+Community.create({
+  name: "Football Fans ⚽️",
+  description: "For people who call soccer by its real name - Football",
+  category: "Sports, Football",
+  creator: "tim@tim.com",
+  comments: {
+    text: "Soccer ⚽️‍",
+    creator: "tim@tim.com"
   }
 }).then(console.log("Community Created"));
