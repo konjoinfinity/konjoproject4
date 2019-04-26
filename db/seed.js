@@ -93,6 +93,10 @@ Community.deleteMany({})
       comments: {
         text: "Marathon here we come!",
         creator: "james@james.com"
+      },
+      location: {
+        lat: 37.785835,
+        long: -122.406418
       }
     }).then(console.log("Community Created"));
   })
@@ -139,7 +143,11 @@ Community.create({
       text: "Express!!!",
       creator: "konjo@konjo.com"
     }
-  ]
+  ],
+  location: {
+    lat: 37.785836,
+    long: -122.406419
+  }
 }).then(console.log("Community Created"));
 
 Community.create({
@@ -167,6 +175,10 @@ Community.create({
   comments: {
     text: "Get your groove on",
     creator: "julie@julie.com"
+  },
+  location: {
+    lat: 37.785837,
+    long: -122.40642
   }
 }).then(console.log("Community Created"));
 
@@ -195,6 +207,10 @@ Community.create({
   comments: {
     text: "You know nothing Jon Snow...",
     creator: "tim@tim.com"
+  },
+  location: {
+    lat: 37.785833,
+    long: -122.406416
   }
 }).then(console.log("Community Created"));
 
@@ -226,6 +242,10 @@ Community.create({
   comments: {
     text: "Woof!",
     creator: "brian@brian.com"
+  },
+  location: {
+    lat: 37.785832,
+    long: -122.406416
   }
 }).then(console.log("Community Created"));
 
@@ -257,6 +277,10 @@ Community.create({
   comments: {
     text: "Meow!",
     creator: "brian@brian.com"
+  },
+  location: {
+    lat: 37.785832,
+    long: -122.40641
   }
 }).then(console.log("Community Created"));
 
@@ -285,6 +309,10 @@ Community.create({
   comments: {
     text: "Anyone up for South Africa?",
     creator: "julie@julie.com"
+  },
+  location: {
+    lat: 37.785853,
+    long: -122.406446
   }
 }).then(console.log("Community Created"));
 
@@ -316,6 +344,10 @@ Community.create({
   comments: {
     text: "Checkmate...",
     creator: "tim@tim.com"
+  },
+  location: {
+    lat: 37.785841,
+    long: -122.406422
   }
 }).then(console.log("Community Created"));
 
@@ -347,6 +379,10 @@ Community.create({
   comments: {
     text: "Lets walk.",
     creator: "konjo@konjo.com"
+  },
+  location: {
+    lat: 37.785828,
+    long: -122.406409
   }
 }).then(console.log("Community Created"));
 
@@ -375,6 +411,10 @@ Community.create({
   comments: {
     text: "Soulfire!!!",
     creator: "konjo@konjo.com"
+  },
+  location: {
+    lat: 37.785811,
+    long: -122.406425
   }
 }).then(console.log("Community Created"));
 
@@ -393,6 +433,10 @@ Community.create({
   comments: {
     text: "Hi Julie",
     creator: "konjo@konjo.com"
+  },
+  location: {
+    lat: 37.785847,
+    long: -122.406415
   }
 }).then(console.log("Community Created"));
 
@@ -400,7 +444,11 @@ Community.create({
   name: "Karaoke Kooks 🎤",
   description: "For people who are RockStars at heart",
   category: "Music, Karaoke",
-  creator: "konjo@konjo.com"
+  creator: "konjo@konjo.com",
+  location: {
+    lat: 37.78585,
+    long: -122.406413
+  }
 }).then(console.log("Community Created"));
 
 Community.create({
@@ -413,7 +461,11 @@ Community.create({
     {
       name: "tim@tim.com"
     }
-  ]
+  ],
+  location: {
+    lat: 37.785863,
+    long: -122.406466
+  }
 }).then(console.log("Community Created"));
 
 Community.create({
@@ -444,6 +496,10 @@ Community.create({
   comments: {
     text: "React Native kicks ass",
     creator: "konjo@konjo.com"
+  },
+  location: {
+    lat: 37.78584,
+    long: -122.406431
   }
 }).then(console.log("Community Created"));
 
@@ -472,6 +528,10 @@ Community.create({
   comments: {
     text: "Ballast Point 🍻",
     creator: "konjo@konjo.com"
+  },
+  location: {
+    lat: 37.785822,
+    long: -122.406422
   }
 }).then(console.log("Community Created"));
 
@@ -489,6 +549,10 @@ Community.create({
   comments: {
     text: "Hoops! ⛹🏻‍",
     creator: "brian@brian.com"
+  },
+  location: {
+    lat: 37.785823,
+    long: -122.406423
   }
 }).then(console.log("Community Created"));
 
@@ -506,6 +570,10 @@ Community.create({
   comments: {
     text: "Goal!!! 🥅‍",
     creator: "brian@brian.com"
+  },
+  location: {
+    lat: 37.785824,
+    long: -122.406424
   }
 }).then(console.log("Community Created"));
 
@@ -517,6 +585,10 @@ Community.create({
   comments: {
     text: "Soccer ⚽️‍",
     creator: "tim@tim.com"
+  },
+  location: {
+    lat: 37.785825,
+    long: -122.406435
   }
 }).then(console.log("Community Created"));
 
@@ -528,6 +600,10 @@ Community.create({
   comments: {
     text: "Sarah is super hot!‍",
     creator: "konjo@konjo.com"
+  },
+  location: {
+    lat: 37.785835,
+    long: -122.406425
   }
 }).then(console.log("Community Created"));
 
@@ -556,6 +632,10 @@ Community.create({
   comments: {
     text: "Hungarian Horntail 🐉🐲",
     creator: "konjo@konjo.com"
+  },
+  location: {
+    lat: 37.785843,
+    long: -122.406443
   }
 }).then(console.log("Community Created"));
 
@@ -567,6 +647,10 @@ Community.create({
   comments: {
     text: "Anyone up for painting? 🎨🖌‍",
     creator: "james@james.com"
+  },
+  location: {
+    lat: 37.785871,
+    long: -122.406405
   }
 }).then(console.log("Community Created"));
 
@@ -591,5 +675,9 @@ Community.create({
     time: "7pm",
     date: "Weekly",
     creator: "brian@brian.com"
+  },
+  location: {
+    lat: 37.785831,
+    long: -122.406411
   }
 }).then(console.log("Community Created"));
