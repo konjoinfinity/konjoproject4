@@ -95,8 +95,8 @@ Community.deleteMany({})
         creator: "james@james.com"
       },
       location: {
-        lat: 37.785835,
-        long: -122.406418
+        lat: 38.937606,
+        long: -77.047869
       }
     }).then(console.log("Community Created"));
   })
@@ -145,8 +145,8 @@ Community.create({
     }
   ],
   location: {
-    lat: 37.785836,
-    long: -122.406419
+    lat: 38.89072,
+    long: -77.087238
   }
 }).then(console.log("Community Created"));
 
@@ -177,8 +177,8 @@ Community.create({
     creator: "julie@julie.com"
   },
   location: {
-    lat: 37.785837,
-    long: -122.40642
+    lat: 38.879115,
+    long: -77.024038
   }
 }).then(console.log("Community Created"));
 
@@ -209,8 +209,8 @@ Community.create({
     creator: "tim@tim.com"
   },
   location: {
-    lat: 37.785833,
-    long: -122.406416
+    lat: 38.87941,
+    long: -77.178446
   }
 }).then(console.log("Community Created"));
 
@@ -244,8 +244,8 @@ Community.create({
     creator: "brian@brian.com"
   },
   location: {
-    lat: 37.785832,
-    long: -122.406416
+    lat: 38.879093,
+    long: -77.111213
   }
 }).then(console.log("Community Created"));
 
@@ -279,8 +279,8 @@ Community.create({
     creator: "brian@brian.com"
   },
   location: {
-    lat: 37.785832,
-    long: -122.40641
+    lat: 38.868935,
+    long: -77.142954
   }
 }).then(console.log("Community Created"));
 
@@ -311,8 +311,8 @@ Community.create({
     creator: "julie@julie.com"
   },
   location: {
-    lat: 37.785853,
-    long: -122.406446
+    lat: 38.851351,
+    long: -77.040392
   }
 }).then(console.log("Community Created"));
 
@@ -346,8 +346,8 @@ Community.create({
     creator: "tim@tim.com"
   },
   location: {
-    lat: 37.785841,
-    long: -122.406422
+    lat: 38.913903,
+    long: -77.045248
   }
 }).then(console.log("Community Created"));
 
@@ -381,8 +381,8 @@ Community.create({
     creator: "konjo@konjo.com"
   },
   location: {
-    lat: 37.785828,
-    long: -122.406409
+    lat: 38.889595,
+    long: -77.022878
   }
 }).then(console.log("Community Created"));
 
@@ -413,8 +413,8 @@ Community.create({
     creator: "konjo@konjo.com"
   },
   location: {
-    lat: 37.785811,
-    long: -122.406425
+    lat: 38.892378,
+    long: -77.140673
   }
 }).then(console.log("Community Created"));
 
@@ -435,8 +435,8 @@ Community.create({
     creator: "konjo@konjo.com"
   },
   location: {
-    lat: 37.785847,
-    long: -122.406415
+    lat: 38.858339,
+    long: -77.022357
   }
 }).then(console.log("Community Created"));
 
@@ -446,8 +446,8 @@ Community.create({
   category: "Music, Karaoke",
   creator: "konjo@konjo.com",
   location: {
-    lat: 37.78585,
-    long: -122.406413
+    lat: 38.895441,
+    long: -77.022191
   }
 }).then(console.log("Community Created"));
 
@@ -463,8 +463,8 @@ Community.create({
     }
   ],
   location: {
-    lat: 37.785863,
-    long: -122.406466
+    lat: 38.904981,
+    long: -77.034034
   }
 }).then(console.log("Community Created"));
 
@@ -498,8 +498,8 @@ Community.create({
     creator: "konjo@konjo.com"
   },
   location: {
-    lat: 37.78584,
-    long: -122.406431
+    lat: 38.888123,
+    long: -77.091069
   }
 }).then(console.log("Community Created"));
 
@@ -530,8 +530,8 @@ Community.create({
     creator: "konjo@konjo.com"
   },
   location: {
-    lat: 37.785822,
-    long: -122.406422
+    lat: 38.903805,
+    long: -77.034021
   }
 }).then(console.log("Community Created"));
 
@@ -551,8 +551,8 @@ Community.create({
     creator: "brian@brian.com"
   },
   location: {
-    lat: 37.785823,
-    long: -122.406423
+    lat: 38.884674,
+    long: -77.126952
   }
 }).then(console.log("Community Created"));
 
@@ -572,8 +572,8 @@ Community.create({
     creator: "brian@brian.com"
   },
   location: {
-    lat: 37.785824,
-    long: -122.406424
+    lat: 38.878787,
+    long: -77.109443
   }
 }).then(console.log("Community Created"));
 
@@ -587,8 +587,8 @@ Community.create({
     creator: "tim@tim.com"
   },
   location: {
-    lat: 37.785825,
-    long: -122.406435
+    lat: 38.890095,
+    long: -76.971877
   }
 }).then(console.log("Community Created"));
 
@@ -602,8 +602,8 @@ Community.create({
     creator: "konjo@konjo.com"
   },
   location: {
-    lat: 37.785835,
-    long: -122.406425
+    lat: 38.940613,
+    long: -77.080719
   }
 }).then(console.log("Community Created"));
 
@@ -634,8 +634,8 @@ Community.create({
     creator: "konjo@konjo.com"
   },
   location: {
-    lat: 37.785843,
-    long: -122.406443
+    lat: 38.937528,
+    long: -77.088739
   }
 }).then(console.log("Community Created"));
 
@@ -649,8 +649,8 @@ Community.create({
     creator: "james@james.com"
   },
   location: {
-    lat: 37.785871,
-    long: -122.406405
+    lat: 38.891557,
+    long: -77.019976
   }
 }).then(console.log("Community Created"));
 
@@ -677,7 +677,7 @@ Community.create({
     creator: "brian@brian.com"
   },
   location: {
-    lat: 37.785831,
-    long: -122.406411
+    lat: 38.884119,
+    long: -77.107255
   }
 }).then(console.log("Community Created"));
