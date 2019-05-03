@@ -8,7 +8,7 @@ const passport = require("../config/passport");
 const User = mongoose.model("User");
 
 router.get("/", function(req, res) {
-  var token = req.headers["x-access-token"];
+  var token = req.headers["user-token"];
   if (!token)
     return res.status(401).send({ auth: false, message: "No token provided." });
 
@@ -32,128 +32,308 @@ router.get("/", function(req, res) {
 });
 
 router.post("/", (req, res) => {
-  Community.create(req.body).then(konjo => res.redirect("/community"));
+  var token = req.headers["user-token"];
+  if (!token)
+    return res.status(401).send({ auth: false, message: "No token provided." });
+
+  try {
+    var decoded = jwt.decode(token, config.jwtSecret);
+    console.log(decoded);
+    User.findById(decoded.id, { password: 0 }, function(err, user) {
+      if (err)
+        return res.status(500).send("There was a problem finding the user.");
+      if (!user) return res.status(404).send("No user found.");
+      Community.create(req.body).then(konjo => res.redirect("/community"));
+    });
+  } catch (error) {
+    console.log(error.message);
+    return res
+      .status(500)
+      .send({ auth: false, message: "Failed to authenticate token." });
+  }
 });
 
 router.get("/:id", (req, res) => {
-  Community.findOne({ _id: req.params.id }).then(community =>
-    res.json(community)
-  );
+  var token = req.headers["user-token"];
+  if (!token)
+    return res.status(401).send({ auth: false, message: "No token provided." });
+
+  try {
+    var decoded = jwt.decode(token, config.jwtSecret);
+    console.log(decoded);
+    User.findById(decoded.id, { password: 0 }, function(err, user) {
+      if (err)
+        return res.status(500).send("There was a problem finding the user.");
+      if (!user) return res.status(404).send("No user found.");
+      Community.findOne({ _id: req.params.id }).then(community =>
+        res.json(community)
+      );
+    });
+  } catch (error) {
+    console.log(error.message);
+    return res
+      .status(500)
+      .send({ auth: false, message: "Failed to authenticate token." });
+  }
 });
 
 router.put("/:id", (req, res) => {
-  Community.findOne({
-    _id: req.params.id
-  }).then(community => {
-    community.name = req.body.name;
-    community.description = req.body.description;
-    community.category = req.body.category;
-    community.save((err, community) => {
-      res.json(community);
+  var token = req.headers["user-token"];
+  if (!token)
+    return res.status(401).send({ auth: false, message: "No token provided." });
+
+  try {
+    var decoded = jwt.decode(token, config.jwtSecret);
+    console.log(decoded);
+    User.findById(decoded.id, { password: 0 }, function(err, user) {
+      if (err)
+        return res.status(500).send("There was a problem finding the user.");
+      if (!user) return res.status(404).send("No user found.");
+      Community.findOne({
+        _id: req.params.id
+      }).then(community => {
+        community.name = req.body.name;
+        community.description = req.body.description;
+        community.category = req.body.category;
+        community.save((err, community) => {
+          res.json(community);
+        });
+      });
     });
-  });
+  } catch (error) {
+    console.log(error.message);
+    return res
+      .status(500)
+      .send({ auth: false, message: "Failed to authenticate token." });
+  }
 });
 
 router.delete("/:id", (req, res) => {
-  Community.findOneAndDelete({ _id: req.params.id }).then(konjo =>
-    res.json("/community")
-  );
+  var token = req.headers["user-token"];
+  if (!token)
+    return res.status(401).send({ auth: false, message: "No token provided." });
+
+  try {
+    var decoded = jwt.decode(token, config.jwtSecret);
+    console.log(decoded);
+    User.findById(decoded.id, { password: 0 }, function(err, user) {
+      if (err)
+        return res.status(500).send("There was a problem finding the user.");
+      if (!user) return res.status(404).send("No user found.");
+      Community.findOneAndDelete({ _id: req.params.id }).then(konjo =>
+        res.json("/community")
+      );
+    });
+  } catch (error) {
+    console.log(error.message);
+    return res
+      .status(500)
+      .send({ auth: false, message: "Failed to authenticate token." });
+  }
 });
 
 router.put("/:id/comment", (req, res) => {
-  const createComment = {
-    text: req.body.comment,
-    creator: req.body.creator
-  };
-  Community.findOneAndUpdate(
-    { _id: req.params.id },
-    { $push: { comments: createComment } }
-  ).then(community => {
-    community.save((err, community) => {
-      res.json(community);
+  var token = req.headers["user-token"];
+  if (!token)
+    return res.status(401).send({ auth: false, message: "No token provided." });
+
+  try {
+    var decoded = jwt.decode(token, config.jwtSecret);
+    console.log(decoded);
+    User.findById(decoded.id, { password: 0 }, function(err, user) {
+      if (err)
+        return res.status(500).send("There was a problem finding the user.");
+      if (!user) return res.status(404).send("No user found.");
+      const createComment = {
+        text: req.body.comment,
+        creator: req.body.creator
+      };
+      Community.findOneAndUpdate(
+        { _id: req.params.id },
+        { $push: { comments: createComment } }
+      ).then(community => {
+        community.save((err, community) => {
+          res.json(community);
+        });
+      });
     });
-  });
+  } catch (error) {
+    console.log(error.message);
+    return res
+      .status(500)
+      .send({ auth: false, message: "Failed to authenticate token." });
+  }
 });
 
 router.put("/:id/delete", (req, res) => {
-  const deleteComment = { _id: req.body.body };
-  Community.findOneAndUpdate(
-    { _id: req.params.id },
-    { $pull: { comments: deleteComment } }
-  ).then(community => {
-    community.save((err, community) => {
-      res.json(community);
+  var token = req.headers["user-token"];
+  if (!token)
+    return res.status(401).send({ auth: false, message: "No token provided." });
+
+  try {
+    var decoded = jwt.decode(token, config.jwtSecret);
+    console.log(decoded);
+    User.findById(decoded.id, { password: 0 }, function(err, user) {
+      if (err)
+        return res.status(500).send("There was a problem finding the user.");
+      if (!user) return res.status(404).send("No user found.");
+      const deleteComment = { _id: req.body.body };
+      Community.findOneAndUpdate(
+        { _id: req.params.id },
+        { $pull: { comments: deleteComment } }
+      ).then(community => {
+        community.save((err, community) => {
+          res.json(community);
+        });
+      });
     });
-  });
+  } catch (error) {
+    console.log(error.message);
+    return res
+      .status(500)
+      .send({ auth: false, message: "Failed to authenticate token." });
+  }
 });
 
 router.put("/:id/meet", (req, res) => {
-  const createMeet = {
-    name: req.body.meet.name,
-    description: req.body.meet.description,
-    location: req.body.meet.location,
-    date: req.body.meet.date,
-    time: req.body.meet.time,
-    creator: req.body.meet.creator
-  };
-  Community.findOneAndUpdate(
-    { _id: req.params.id },
-    { $push: { meets: createMeet } }
-  ).then(community => {
-    res.json(community);
-  });
+  var token = req.headers["user-token"];
+  if (!token)
+    return res.status(401).send({ auth: false, message: "No token provided." });
+
+  try {
+    var decoded = jwt.decode(token, config.jwtSecret);
+    console.log(decoded);
+    User.findById(decoded.id, { password: 0 }, function(err, user) {
+      if (err)
+        return res.status(500).send("There was a problem finding the user.");
+      if (!user) return res.status(404).send("No user found.");
+      const createMeet = {
+        name: req.body.meet.name,
+        description: req.body.meet.description,
+        location: req.body.meet.location,
+        date: req.body.meet.date,
+        time: req.body.meet.time,
+        creator: req.body.meet.creator
+      };
+      Community.findOneAndUpdate(
+        { _id: req.params.id },
+        { $push: { meets: createMeet } }
+      ).then(community => {
+        res.json(community);
+      });
+    });
+  } catch (error) {
+    console.log(error.message);
+    return res
+      .status(500)
+      .send({ auth: false, message: "Failed to authenticate token." });
+  }
 });
 
 router.put("/:id/meet/delete", (req, res) => {
-  const deleteMeet = { _id: req.body.body };
-  Community.findOneAndUpdate(
-    { _id: req.params.id },
-    { $pull: { meets: deleteMeet } }
-  ).then(community => {
-    community.save((err, community) => {
-      res.json(community);
+  var token = req.headers["user-token"];
+  if (!token)
+    return res.status(401).send({ auth: false, message: "No token provided." });
+
+  try {
+    var decoded = jwt.decode(token, config.jwtSecret);
+    console.log(decoded);
+    User.findById(decoded.id, { password: 0 }, function(err, user) {
+      if (err)
+        return res.status(500).send("There was a problem finding the user.");
+      if (!user) return res.status(404).send("No user found.");
+      const deleteMeet = { _id: req.body.body };
+      Community.findOneAndUpdate(
+        { _id: req.params.id },
+        { $pull: { meets: deleteMeet } }
+      ).then(community => {
+        community.save((err, community) => {
+          res.json(community);
+        });
+      });
     });
-  });
+  } catch (error) {
+    console.log(error.message);
+    return res
+      .status(500)
+      .send({ auth: false, message: "Failed to authenticate token." });
+  }
 });
 
 router.put("/:id/adduser", (req, res) => {
-  const addUser = {
-    name: req.body.member
-  };
-  Community.findOneAndUpdate(
-    { _id: req.params.id },
-    { $push: { members: addUser } }
-  ).then(community => {
-    community.save(community);
-  });
-  Community.findOneAndUpdate(
-    { _id: req.params.id },
-    { $inc: { numberOfMembers: 1 } },
-    { new: true }
-  )
-    .then(member => {
-      res.json(member);
-    })
-    .catch(err => console.log(err));
+  var token = req.headers["user-token"];
+  if (!token)
+    return res.status(401).send({ auth: false, message: "No token provided." });
+
+  try {
+    var decoded = jwt.decode(token, config.jwtSecret);
+    console.log(decoded);
+    User.findById(decoded.id, { password: 0 }, function(err, user) {
+      if (err)
+        return res.status(500).send("There was a problem finding the user.");
+      if (!user) return res.status(404).send("No user found.");
+      const addUser = {
+        name: req.body.member
+      };
+      Community.findOneAndUpdate(
+        { _id: req.params.id },
+        { $push: { members: addUser } }
+      ).then(community => {
+        community.save(community);
+      });
+      Community.findOneAndUpdate(
+        { _id: req.params.id },
+        { $inc: { numberOfMembers: 1 } },
+        { new: true }
+      )
+        .then(member => {
+          res.json(member);
+        })
+        .catch(err => console.log(err));
+    });
+  } catch (error) {
+    console.log(error.message);
+    return res
+      .status(500)
+      .send({ auth: false, message: "Failed to authenticate token." });
+  }
 });
 
 router.put("/:id/removeuser", (req, res) => {
-  const deleteMember = { _id: req.body.body };
-  Community.findOneAndUpdate(
-    { _id: req.params.id },
-    { $pull: { members: deleteMember } }
-  ).then(community => {
-    community.save(community);
-  });
-  Community.findOneAndUpdate(
-    { _id: req.params.id },
-    { $inc: { numberOfMembers: -1 } },
-    { new: true }
-  )
-    .then(member => {
-      res.json(member);
-    })
-    .catch(err => console.log(err));
+  var token = req.headers["user-token"];
+  if (!token)
+    return res.status(401).send({ auth: false, message: "No token provided." });
+
+  try {
+    var decoded = jwt.decode(token, config.jwtSecret);
+    console.log(decoded);
+    User.findById(decoded.id, { password: 0 }, function(err, user) {
+      if (err)
+        return res.status(500).send("There was a problem finding the user.");
+      if (!user) return res.status(404).send("No user found.");
+      const deleteMember = { _id: req.body.body };
+      Community.findOneAndUpdate(
+        { _id: req.params.id },
+        { $pull: { members: deleteMember } }
+      ).then(community => {
+        community.save(community);
+      });
+      Community.findOneAndUpdate(
+        { _id: req.params.id },
+        { $inc: { numberOfMembers: -1 } },
+        { new: true }
+      )
+        .then(member => {
+          res.json(member);
+        })
+        .catch(err => console.log(err));
+    });
+  } catch (error) {
+    console.log(error.message);
+    return res
+      .status(500)
+      .send({ auth: false, message: "Failed to authenticate token." });
+  }
 });
 
 module.exports = router;
