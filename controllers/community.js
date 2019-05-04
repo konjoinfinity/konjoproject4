@@ -14,7 +14,6 @@ router.get("/", function(req, res) {
 
   try {
     var decoded = jwt.decode(token, config.jwtSecret);
-    console.log(decoded);
     User.findById(decoded.id, { password: 0 }, function(err, user) {
       if (err)
         return res.status(500).send("There was a problem finding the user.");
@@ -24,7 +23,6 @@ router.get("/", function(req, res) {
         .then(community => res.json(community));
     });
   } catch (error) {
-    console.log(error.message);
     return res
       .status(500)
       .send({ auth: false, message: "Failed to authenticate token." });
@@ -38,7 +36,6 @@ router.post("/", (req, res) => {
 
   try {
     var decoded = jwt.decode(token, config.jwtSecret);
-    console.log(decoded);
     User.findById(decoded.id, { password: 0 }, function(err, user) {
       if (err)
         return res.status(500).send("There was a problem finding the user.");
@@ -46,7 +43,6 @@ router.post("/", (req, res) => {
       Community.create(req.body).then(konjo => res.redirect("/community"));
     });
   } catch (error) {
-    console.log(error.message);
     return res
       .status(500)
       .send({ auth: false, message: "Failed to authenticate token." });
@@ -60,7 +56,6 @@ router.get("/:id", (req, res) => {
 
   try {
     var decoded = jwt.decode(token, config.jwtSecret);
-    console.log(decoded);
     User.findById(decoded.id, { password: 0 }, function(err, user) {
       if (err)
         return res.status(500).send("There was a problem finding the user.");
@@ -70,7 +65,6 @@ router.get("/:id", (req, res) => {
       );
     });
   } catch (error) {
-    console.log(error.message);
     return res
       .status(500)
       .send({ auth: false, message: "Failed to authenticate token." });
@@ -84,7 +78,6 @@ router.put("/:id", (req, res) => {
 
   try {
     var decoded = jwt.decode(token, config.jwtSecret);
-    console.log(decoded);
     User.findById(decoded.id, { password: 0 }, function(err, user) {
       if (err)
         return res.status(500).send("There was a problem finding the user.");
@@ -101,7 +94,6 @@ router.put("/:id", (req, res) => {
       });
     });
   } catch (error) {
-    console.log(error.message);
     return res
       .status(500)
       .send({ auth: false, message: "Failed to authenticate token." });
@@ -115,7 +107,6 @@ router.delete("/:id", (req, res) => {
 
   try {
     var decoded = jwt.decode(token, config.jwtSecret);
-    console.log(decoded);
     User.findById(decoded.id, { password: 0 }, function(err, user) {
       if (err)
         return res.status(500).send("There was a problem finding the user.");
@@ -125,7 +116,6 @@ router.delete("/:id", (req, res) => {
       );
     });
   } catch (error) {
-    console.log(error.message);
     return res
       .status(500)
       .send({ auth: false, message: "Failed to authenticate token." });
@@ -139,7 +129,6 @@ router.put("/:id/comment", (req, res) => {
 
   try {
     var decoded = jwt.decode(token, config.jwtSecret);
-    console.log(decoded);
     User.findById(decoded.id, { password: 0 }, function(err, user) {
       if (err)
         return res.status(500).send("There was a problem finding the user.");
@@ -158,7 +147,6 @@ router.put("/:id/comment", (req, res) => {
       });
     });
   } catch (error) {
-    console.log(error.message);
     return res
       .status(500)
       .send({ auth: false, message: "Failed to authenticate token." });
@@ -172,7 +160,6 @@ router.put("/:id/delete", (req, res) => {
 
   try {
     var decoded = jwt.decode(token, config.jwtSecret);
-    console.log(decoded);
     User.findById(decoded.id, { password: 0 }, function(err, user) {
       if (err)
         return res.status(500).send("There was a problem finding the user.");
@@ -188,7 +175,6 @@ router.put("/:id/delete", (req, res) => {
       });
     });
   } catch (error) {
-    console.log(error.message);
     return res
       .status(500)
       .send({ auth: false, message: "Failed to authenticate token." });
@@ -202,7 +188,6 @@ router.put("/:id/meet", (req, res) => {
 
   try {
     var decoded = jwt.decode(token, config.jwtSecret);
-    console.log(decoded);
     User.findById(decoded.id, { password: 0 }, function(err, user) {
       if (err)
         return res.status(500).send("There was a problem finding the user.");
@@ -223,7 +208,6 @@ router.put("/:id/meet", (req, res) => {
       });
     });
   } catch (error) {
-    console.log(error.message);
     return res
       .status(500)
       .send({ auth: false, message: "Failed to authenticate token." });
@@ -237,7 +221,6 @@ router.put("/:id/meet/delete", (req, res) => {
 
   try {
     var decoded = jwt.decode(token, config.jwtSecret);
-    console.log(decoded);
     User.findById(decoded.id, { password: 0 }, function(err, user) {
       if (err)
         return res.status(500).send("There was a problem finding the user.");
@@ -253,7 +236,6 @@ router.put("/:id/meet/delete", (req, res) => {
       });
     });
   } catch (error) {
-    console.log(error.message);
     return res
       .status(500)
       .send({ auth: false, message: "Failed to authenticate token." });
@@ -267,7 +249,6 @@ router.put("/:id/adduser", (req, res) => {
 
   try {
     var decoded = jwt.decode(token, config.jwtSecret);
-    console.log(decoded);
     User.findById(decoded.id, { password: 0 }, function(err, user) {
       if (err)
         return res.status(500).send("There was a problem finding the user.");
@@ -292,7 +273,6 @@ router.put("/:id/adduser", (req, res) => {
         .catch(err => console.log(err));
     });
   } catch (error) {
-    console.log(error.message);
     return res
       .status(500)
       .send({ auth: false, message: "Failed to authenticate token." });
@@ -306,7 +286,6 @@ router.put("/:id/removeuser", (req, res) => {
 
   try {
     var decoded = jwt.decode(token, config.jwtSecret);
-    console.log(decoded);
     User.findById(decoded.id, { password: 0 }, function(err, user) {
       if (err)
         return res.status(500).send("There was a problem finding the user.");
@@ -329,7 +308,6 @@ router.put("/:id/removeuser", (req, res) => {
         .catch(err => console.log(err));
     });
   } catch (error) {
-    console.log(error.message);
     return res
       .status(500)
       .send({ auth: false, message: "Failed to authenticate token." });
