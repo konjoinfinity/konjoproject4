@@ -49,6 +49,12 @@ router.post("/", (req, res) => {
   }
 });
 
+router.get("/search", function(req, res) {
+  Community.find({})
+    .sort({ numberOfMembers: 1 })
+    .then(community => res.json(community));
+});
+
 router.get("/:id", (req, res) => {
   var token = req.headers["user-token"];
   if (!token)
