@@ -320,4 +320,10 @@ router.put("/:id/removeuser", (req, res) => {
   }
 });
 
+router.get("/:id/map", (req, res) => {
+  Community.findOne({ _id: req.params.id }).then(community =>
+    res.json(community)
+  );
+});
+
 module.exports = router;
