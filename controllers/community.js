@@ -206,6 +206,7 @@ router.put("/:id/meet", (req, res) => {
         time: req.body.meet.time,
         creator: req.body.meet.creator
       };
+      console.log(createMeet);
       Community.findOneAndUpdate(
         { _id: req.params.id },
         { $push: { meets: createMeet } }
