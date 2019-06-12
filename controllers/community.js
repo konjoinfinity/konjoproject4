@@ -40,7 +40,7 @@ router.post("/", (req, res) => {
       if (err)
         return res.status(500).send("There was a problem finding the user.");
       if (!user) return res.status(404).send("No user found.");
-      Community.create(req.body).then(konjo => res.redirect("/community"));
+      Community.create(req.body).then(konjo => res.json(konjo));
     });
   } catch (error) {
     return res
