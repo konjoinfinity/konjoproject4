@@ -111,6 +111,7 @@ router.post("/changepass", (req, res) => {
                   { new: true }
                 )
                   .then(user => {
+                    console.log("Password has been changed");
                     res.json("Password has been changed");
                   })
                   .catch(err => console.log(err));
