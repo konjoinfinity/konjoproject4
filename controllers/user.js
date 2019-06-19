@@ -7,6 +7,7 @@ const User = mongoose.model("User");
 const router = express.Router();
 const saltRounds = 10;
 const bcrypt = require("bcrypt");
+// const jsonwt = require("jsonwebtoken"); will add in the future
 
 router.post("/signup", (req, res) => {
   if (req.body.email && req.body.password) {
@@ -23,6 +24,9 @@ router.post("/signup", (req, res) => {
                 id: user.id
               };
               var token = jwt.encode(payload, config.jwtSecret);
+              // var token = jsonwt.sign(payload, config.jwtSecret, {
+              //   expiresIn: 86400
+              // });
               res.json({
                 token: token
               });
@@ -60,6 +64,9 @@ router.post("/login", (req, res) => {
             id: user.id
           };
           var token = jwt.encode(payload, config.jwtSecret);
+          // var token = jsonwt.sign(payload, config.jwtSecret, {
+          //   expiresIn: 86400
+          // });
           res.json({
             token: token
           });
