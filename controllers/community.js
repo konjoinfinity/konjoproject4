@@ -11,7 +11,6 @@ router.get("/", function(req, res) {
   var token = req.headers["user-token"];
   if (!token)
     return res.status(401).send({ auth: false, message: "No token provided." });
-
   try {
     var decoded = jwt.decode(token, config.jwtSecret);
     User.findById(decoded.id, { password: 0 }, function(err, user) {
@@ -33,7 +32,6 @@ router.post("/", (req, res) => {
   var token = req.headers["user-token"];
   if (!token)
     return res.status(401).send({ auth: false, message: "No token provided." });
-
   try {
     var decoded = jwt.decode(token, config.jwtSecret);
     User.findById(decoded.id, { password: 0 }, function(err, user) {
@@ -49,17 +47,10 @@ router.post("/", (req, res) => {
   }
 });
 
-router.get("/search", function(req, res) {
-  Community.find({})
-    .sort({ numberOfMembers: 1 })
-    .then(community => res.json(community));
-});
-
 router.get("/:id", (req, res) => {
   var token = req.headers["user-token"];
   if (!token)
     return res.status(401).send({ auth: false, message: "No token provided." });
-
   try {
     var decoded = jwt.decode(token, config.jwtSecret);
     User.findById(decoded.id, { password: 0 }, function(err, user) {
@@ -81,7 +72,6 @@ router.put("/:id", (req, res) => {
   var token = req.headers["user-token"];
   if (!token)
     return res.status(401).send({ auth: false, message: "No token provided." });
-
   try {
     var decoded = jwt.decode(token, config.jwtSecret);
     User.findById(decoded.id, { password: 0 }, function(err, user) {
@@ -110,7 +100,6 @@ router.delete("/:id", (req, res) => {
   var token = req.headers["user-token"];
   if (!token)
     return res.status(401).send({ auth: false, message: "No token provided." });
-
   try {
     var decoded = jwt.decode(token, config.jwtSecret);
     User.findById(decoded.id, { password: 0 }, function(err, user) {
@@ -132,7 +121,6 @@ router.put("/:id/comment", (req, res) => {
   var token = req.headers["user-token"];
   if (!token)
     return res.status(401).send({ auth: false, message: "No token provided." });
-
   try {
     var decoded = jwt.decode(token, config.jwtSecret);
     User.findById(decoded.id, { password: 0 }, function(err, user) {
@@ -163,7 +151,6 @@ router.put("/:id/delete", (req, res) => {
   var token = req.headers["user-token"];
   if (!token)
     return res.status(401).send({ auth: false, message: "No token provided." });
-
   try {
     var decoded = jwt.decode(token, config.jwtSecret);
     User.findById(decoded.id, { password: 0 }, function(err, user) {
@@ -191,7 +178,6 @@ router.put("/:id/meet", (req, res) => {
   var token = req.headers["user-token"];
   if (!token)
     return res.status(401).send({ auth: false, message: "No token provided." });
-
   try {
     var decoded = jwt.decode(token, config.jwtSecret);
     User.findById(decoded.id, { password: 0 }, function(err, user) {
@@ -225,7 +211,6 @@ router.put("/:id/meet/delete", (req, res) => {
   var token = req.headers["user-token"];
   if (!token)
     return res.status(401).send({ auth: false, message: "No token provided." });
-
   try {
     var decoded = jwt.decode(token, config.jwtSecret);
     User.findById(decoded.id, { password: 0 }, function(err, user) {
@@ -253,7 +238,6 @@ router.put("/:id/adduser", (req, res) => {
   var token = req.headers["user-token"];
   if (!token)
     return res.status(401).send({ auth: false, message: "No token provided." });
-
   try {
     var decoded = jwt.decode(token, config.jwtSecret);
     User.findById(decoded.id, { password: 0 }, function(err, user) {
@@ -290,7 +274,6 @@ router.put("/:id/removeuser", (req, res) => {
   var token = req.headers["user-token"];
   if (!token)
     return res.status(401).send({ auth: false, message: "No token provided." });
-
   try {
     var decoded = jwt.decode(token, config.jwtSecret);
     User.findById(decoded.id, { password: 0 }, function(err, user) {
@@ -319,12 +302,6 @@ router.put("/:id/removeuser", (req, res) => {
       .status(500)
       .send({ auth: false, message: "Failed to authenticate token." });
   }
-});
-
-router.get("/:id/map", (req, res) => {
-  Community.findOne({ _id: req.params.id }).then(community =>
-    res.json(community)
-  );
 });
 
 module.exports = router;
