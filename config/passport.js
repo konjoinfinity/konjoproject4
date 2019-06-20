@@ -2,9 +2,7 @@ const passport = require("passport");
 const passportJWT = require("passport-jwt");
 const ExtractJwt = passportJWT.ExtractJwt;
 const Strategy = passportJWT.Strategy;
-
 const config = require("./config");
-
 const mongoose = require("../models/user");
 const User = mongoose.model("User");
 
