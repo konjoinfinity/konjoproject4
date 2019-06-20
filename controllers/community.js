@@ -9,9 +9,14 @@ const User = mongoose.model("User");
 const verifyToken = require("../config/verifytoken");
 
 router.get("/", verifyToken, function(req, res) {
-  Community.find({})
-    .sort({ numberOfMembers: 1 })
-    .then(community => res.json(community));
+  User.findById(decodedId, { password: 0 }, function(err, user) {
+    if (err)
+      return res.status(500).send("There was a problem finding the user.");
+    if (!user) return res.status(404).send("No user found.");
+    Community.find({})
+      .sort({ numberOfMembers: 1 })
+      .then(community => res.json(community));
+  });
 });
 
 router.post("/", (req, res) => {
