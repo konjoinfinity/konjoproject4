@@ -1,6 +1,6 @@
 # Project 4 Konjo Communities Node/Express Backend App
 
-Welcome to Konjo Communities where you can create, join, meet, grow, and comment about communities. This is the react web version of the project built using react.
+Welcome to Konjo Communities where you can create, join, meet, grow, and comment about communities. This is the backend portion of the project built with Node.js and Express.
 
 ## Getting Started
 
@@ -10,7 +10,6 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them:
 
--Mac Computer
 -NPM package manager
 -Nodejs
 -MongoDB
@@ -55,7 +54,7 @@ This app was deployed to heroku: https://konjomeet.herokuapp.com/community
 
 ## Contributing
 
-If you would like to contribute to this project, please feel free to submit a pull request!
+If you would like to contribute to this project, please feel free to contact me.
 
 ## Authors
 
