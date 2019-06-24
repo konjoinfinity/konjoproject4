@@ -689,15 +689,9 @@ Community.create({
   creator: "konjo@konjo.com",
   numberOfMembers: 4,
   members: [
-    {
-      name: "tim@tim.com"
-    },
-    {
-      name: "julie@julie.com"
-    },
-    {
-      name: "brian@brian.com"
-    }
+    { name: "tim@tim.com" },
+    { name: "julie@julie.com" },
+    { name: "brian@brian.com" }
   ],
   meets: {
     name: "Weekly softball game",
