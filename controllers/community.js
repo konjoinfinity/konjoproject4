@@ -105,6 +105,8 @@ router.put("/:id/delete", verifyToken, (req, res) => {
   });
 });
 
+//update to add user to attending
+
 router.put("/:id/meet", verifyToken, (req, res) => {
   User.findById(decodedId, { password: 0 }, (err, user) => {
     if (err)
@@ -185,6 +187,36 @@ router.put("/:id/removeuser", verifyToken, (req, res) => {
         res.json(member);
       })
       .catch(err => console.log(err));
+  });
+});
+
+router.put("/:id/meet/edit", verifyToken, (req, res) => {
+  User.findById(decodedId, { password: 0 }, (err, user) => {
+    if (err)
+      return res.status(500).send("There was a problem finding the user.");
+    if (!user) return res.status(404).send("No user found.");
+    const editMeet = {
+      name: req.body.meet.name,
+      description: req.body.meet.description,
+      location: req.body.meet.location,
+      date: req.body.meet.date,
+      time: req.body.meet.time,
+      creator: req.body.meet.creator
+    };
+    const meetId = { _id: req.body.meetId };
+    Community.findOneAndUpdate(
+      { _id: req.params.id },
+      { $pull: { meets: meetId } }
+    ).then(community => {
+      community.save((err, community) => {
+        Community.findOneAndUpdate(
+          { _id: req.params.id },
+          { $push: { meets: editMeet } }
+        ).then(community => {
+          res.json(community);
+        });
+      });
+    });
   });
 });
 
