@@ -4,64 +4,64 @@ const Community = require("../models/community");
 
 mongoose.Promise = Promise;
 
-User.deleteMany({})
-  .then(() => {
-    User.create({
-      name: "Konjo",
-      email: "konjo@konjo.com",
-      password: "777bmx777",
-      interests: {
-        one: "Music",
-        two: "Art",
-        three: "Technology"
-      }
-    }).then(console.log("User Created"));
-  })
-  .then(console.log("Users Deleted"));
-
-User.create({
-  name: "Tim",
-  email: "tim@tim.com",
-  password: "byebyebye",
-  interests: {
-    one: "Movies",
-    two: "Television",
-    three: "Dogs"
-  }
-}).then(console.log("User Created"));
-
-User.create({
-  name: "James",
-  email: "james@james.com",
-  password: "hihihi",
-  interests: {
-    one: "Walking",
-    two: "Reading",
-    three: "Cats"
-  }
-}).then(console.log("User Created"));
-
-User.create({
-  name: "Julie",
-  email: "julie@julie.com",
-  password: "whywhywhy",
-  interests: {
-    one: "Fashion",
-    two: "Dancing",
-    three: "Fitness"
-  }
-}).then(console.log("User Created"));
-
-User.create({
-  name: "Brian",
-  email: "brian@brian.com",
-  password: "hellohello",
-  interests: {
-    one: "Biking",
-    two: "Kyaking",
-    three: "Running"
-  }
-}).then(console.log("User Created"));
+// User.deleteMany({})
+//   .then(() => {
+//     User.create({
+//       name: "Konjo",
+//       email: "konjo@konjo.com",
+//       password: "777bmx777",
+//       interests: {
+//         one: "Music",
+//         two: "Art",
+//         three: "Technology"
+//       }
+//     }).then(console.log("User Created"));
+//   })
+//   .then(console.log("Users Deleted"));
+//
+// User.create({
+//   name: "Tim",
+//   email: "tim@tim.com",
+//   password: "byebyebye",
+//   interests: {
+//     one: "Movies",
+//     two: "Television",
+//     three: "Dogs"
+//   }
+// }).then(console.log("User Created"));
+//
+// User.create({
+//   name: "James",
+//   email: "james@james.com",
+//   password: "hihihi",
+//   interests: {
+//     one: "Walking",
+//     two: "Reading",
+//     three: "Cats"
+//   }
+// }).then(console.log("User Created"));
+//
+// User.create({
+//   name: "Julie",
+//   email: "julie@julie.com",
+//   password: "whywhywhy",
+//   interests: {
+//     one: "Fashion",
+//     two: "Dancing",
+//     three: "Fitness"
+//   }
+// }).then(console.log("User Created"));
+//
+// User.create({
+//   name: "Brian",
+//   email: "brian@brian.com",
+//   password: "hellohello",
+//   interests: {
+//     one: "Biking",
+//     two: "Kyaking",
+//     three: "Running"
+//   }
+// }).then(console.log("User Created"));
 //
 // Community.deleteMany({})
 //   .then(() => {
@@ -681,3 +681,37 @@ User.create({
 //     long: -77.107255
 //   }
 // }).then(console.log("Community Created"));
+
+Community.create({
+  name: "DC Softball Team 🥎",
+  description: "For people who love to play softball",
+  category: "Sports",
+  creator: "konjo@konjo.com",
+  numberOfMembers: 4,
+  members: [
+    {
+      name: "tim@tim.com"
+    },
+    {
+      name: "julie@julie.com"
+    },
+    {
+      name: "brian@brian.com"
+    }
+  ],
+  meets: {
+    name: "Weekly softball game",
+    description: "Weekly team game",
+    location: "Barcroft Field",
+    time: "7:00 PM",
+    date: "Weekly",
+    creator: "tim@tim.com",
+    attending: [{ name: "konjo@konjo.com" }, { name: "julie@julie.com" }],
+    notAttending: { name: "tim@tim.com" },
+    maybeAttending: { name: "brian@brian.com" }
+  },
+  location: {
+    lat: 38.850107,
+    long: -77.102478
+  }
+}).then(console.log("Community Created"));
