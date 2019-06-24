@@ -17,9 +17,9 @@ const Meet = new Schema({
   date: String,
   time: String,
   creator: String,
-  attending: String,
-  notAttending: String,
-  maybeAttending: String
+  attending: [Member],
+  notAttending: [Member],
+  maybeAttending: [Member]
 });
 
 const Community = new Schema({
