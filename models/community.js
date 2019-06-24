@@ -1,8 +1,6 @@
 const mongoose = require("../db/connection");
 const Schema = mongoose.Schema;
 
-// Creator -- req.body.name
-
 const Member = new Schema({
   name: String
 });
@@ -12,18 +10,17 @@ const Comment = new Schema({
   creator: String
 });
 
-// Creator -- req.body.email
-
 const Meet = new Schema({
   name: String,
   description: String,
   location: String,
   date: String,
   time: String,
-  creator: String
+  creator: String,
+  attending: String,
+  notAttending: String,
+  maybeAttending: String
 });
-
-// Creator -- req.body.email
 
 const Community = new Schema({
   name: String,
