@@ -225,105 +225,78 @@ router.put("/:id/meet/edit", verifyToken, (req, res) => {
   });
 });
 
-router.put("/:id/meet/attend", verifyToken, (req, res) => {
+router.put("/:id/meet/attendall", verifyToken, (req, res) => {
   User.findById(decodedId, { password: 0 }, (err, user) => {
     if (err)
       return res.status(500).send("There was a problem finding the user.");
     if (!user) return res.status(404).send("No user found.");
     const member = { name: req.body.name };
-    Community.updateOne(
-      { _id: req.params.id, "meets._id": req.body.meet },
-      { $push: { "meets.$.attending": member } }
-    )
-      .then(community => {
-        res.json(community);
-      })
-      .catch(err => console.log(err));
-  });
-});
-
-router.put("/:id/meet/delattend", verifyToken, (req, res) => {
-  User.findById(decodedId, { password: 0 }, (err, user) => {
-    if (err)
-      return res.status(500).send("There was a problem finding the user.");
-    if (!user) return res.status(404).send("No user found.");
-    const member = { name: req.body.name };
-    Community.updateOne(
-      { _id: req.params.id, "meets._id": req.body.meet },
-      { $pull: { "meets.$.attending": member } }
-    )
-      .then(community => {
-        res.json(community);
-      })
-      .catch(err => console.log(err));
-  });
-});
-
-router.put("/:id/meet/notattend", verifyToken, (req, res) => {
-  User.findById(decodedId, { password: 0 }, (err, user) => {
-    if (err)
-      return res.status(500).send("There was a problem finding the user.");
-    if (!user) return res.status(404).send("No user found.");
-    const member = { name: req.body.name };
-    Community.updateOne(
-      { _id: req.params.id, "meets._id": req.body.meet },
-      { $push: { "meets.$.notAttending": member } }
-    )
-      .then(community => {
-        res.json(community);
-      })
-      .catch(err => console.log(err));
-  });
-});
-
-router.put("/:id/meet/delnotattend", verifyToken, (req, res) => {
-  User.findById(decodedId, { password: 0 }, (err, user) => {
-    if (err)
-      return res.status(500).send("There was a problem finding the user.");
-    if (!user) return res.status(404).send("No user found.");
-    const member = { name: req.body.name };
-    Community.updateOne(
-      { _id: req.params.id, "meets._id": req.body.meet },
-      { $pull: { "meets.$.notAttending": member } }
-    )
-      .then(community => {
-        res.json(community);
-      })
-      .catch(err => console.log(err));
-  });
-});
-
-router.put("/:id/meet/maybeattend", verifyToken, (req, res) => {
-  User.findById(decodedId, { password: 0 }, (err, user) => {
-    if (err)
-      return res.status(500).send("There was a problem finding the user.");
-    if (!user) return res.status(404).send("No user found.");
-    const member = { name: req.body.name };
-    Community.updateOne(
-      { _id: req.params.id, "meets._id": req.body.meet },
-      { $push: { "meets.$.maybeAttending": member } }
-    )
-      .then(community => {
-        res.json(community);
-      })
-      .catch(err => console.log(err));
-  });
-});
-
-router.put("/:id/meet/delmaybeattend", verifyToken, (req, res) => {
-  User.findById(decodedId, { password: 0 }, (err, user) => {
-    if (err)
-      return res.status(500).send("There was a problem finding the user.");
-    if (!user) return res.status(404).send("No user found.");
-    const member = { name: req.body.name };
-    Community.updateOne(
-      { _id: req.params.id, "meets._id": req.body.meet },
-      { $pull: { "meets.$.maybeAttending": member } }
-    )
-      .then(community => {
-        res.json(community);
-      })
-      .catch(err => console.log(err));
+    if (req.body.dbmethod == "push" && req.body.attendance == "attending") {
+      Community.updateOne(
+        { _id: req.params.id, "meets._id": req.body.meet },
+        { $push: { "meets.$.attending": member } }
+      )
+        .then(community => {
+          res.json(community);
+        })
+        .catch(err => console.log(err));
+    }
+    if (req.body.dbmethod == "pull" && req.body.attendance == "attending") {
+      Community.updateOne(
+        { _id: req.params.id, "meets._id": req.body.meet },
+        { $pull: { "meets.$.attending": member } }
+      )
+        .then(community => {
+          res.json(community);
+        })
+        .catch(err => console.log(err));
+    }
+    if (req.body.dbmethod == "push" && req.body.attendance == "notattending") {
+      Community.updateOne(
+        { _id: req.params.id, "meets._id": req.body.meet },
+        { $push: { "meets.$.notAttending": member } }
+      )
+        .then(community => {
+          res.json(community);
+        })
+        .catch(err => console.log(err));
+    }
+    if (req.body.dbmethod == "pull" && req.body.attendance == "notattending") {
+      Community.updateOne(
+        { _id: req.params.id, "meets._id": req.body.meet },
+        { $pull: { "meets.$.notAttending": member } }
+      )
+        .then(community => {
+          res.json(community);
+        })
+        .catch(err => console.log(err));
+    }
+    if (
+      req.body.dbmethod == "push" &&
+      req.body.attendance == "maybeattending"
+    ) {
+      Community.updateOne(
+        { _id: req.params.id, "meets._id": req.body.meet },
+        { $push: { "meets.$.maybeAttending": member } }
+      )
+        .then(community => {
+          res.json(community);
+        })
+        .catch(err => console.log(err));
+    }
+    if (
+      req.body.dbmethod == "pull" &&
+      req.body.attendance == "maybeattending"
+    ) {
+      Community.updateOne(
+        { _id: req.params.id, "meets._id": req.body.meet },
+        { $pull: { "meets.$.maybeAttending": member } }
+      )
+        .then(community => {
+          res.json(community);
+        })
+        .catch(err => console.log(err));
+    }
   });
 });
 
