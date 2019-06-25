@@ -201,7 +201,10 @@ router.put("/:id/meet/edit", verifyToken, (req, res) => {
       location: req.body.meet.location,
       date: req.body.meet.date,
       time: req.body.meet.time,
-      creator: req.body.meet.creator
+      creator: req.body.meet.creator,
+      attending: req.body.meet.attending,
+      notAttending: req.body.meet.notAttending,
+      maybeAttending: req.body.meet.maybeAttending
     };
     const meetId = { _id: req.body.meetId };
     Community.findOneAndUpdate(
