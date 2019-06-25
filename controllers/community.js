@@ -237,4 +237,21 @@ router.put("/:id/meet/attend", verifyToken, (req, res) => {
   });
 });
 
+router.put("/:id/meet/delattend", verifyToken, (req, res) => {
+  User.findById(decodedId, { password: 0 }, (err, user) => {
+    if (err)
+      return res.status(500).send("There was a problem finding the user.");
+    if (!user) return res.status(404).send("No user found.");
+    const member = { name: req.body.name };
+    Community.updateOne(
+      { _id: req.params.id, "meets._id": req.body.meet },
+      { $pull: { "meets.$.attending": member } }
+    )
+      .then(community => {
+        res.json(community);
+      })
+      .catch(err => console.log(err));
+  });
+});
+
 module.exports = router;
