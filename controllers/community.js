@@ -288,4 +288,38 @@ router.put("/:id/meet/delnotattend", verifyToken, (req, res) => {
   });
 });
 
+router.put("/:id/meet/maybeattend", verifyToken, (req, res) => {
+  User.findById(decodedId, { password: 0 }, (err, user) => {
+    if (err)
+      return res.status(500).send("There was a problem finding the user.");
+    if (!user) return res.status(404).send("No user found.");
+    const member = { name: req.body.name };
+    Community.updateOne(
+      { _id: req.params.id, "meets._id": req.body.meet },
+      { $push: { "meets.$.maybeAttending": member } }
+    )
+      .then(community => {
+        res.json(community);
+      })
+      .catch(err => console.log(err));
+  });
+});
+
+router.put("/:id/meet/delmaybeattend", verifyToken, (req, res) => {
+  User.findById(decodedId, { password: 0 }, (err, user) => {
+    if (err)
+      return res.status(500).send("There was a problem finding the user.");
+    if (!user) return res.status(404).send("No user found.");
+    const member = { name: req.body.name };
+    Community.updateOne(
+      { _id: req.params.id, "meets._id": req.body.meet },
+      { $pull: { "meets.$.maybeAttending": member } }
+    )
+      .then(community => {
+        res.json(community);
+      })
+      .catch(err => console.log(err));
+  });
+});
+
 module.exports = router;
