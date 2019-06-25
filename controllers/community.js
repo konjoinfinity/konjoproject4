@@ -112,13 +112,15 @@ router.put("/:id/meet", verifyToken, (req, res) => {
     if (err)
       return res.status(500).send("There was a problem finding the user.");
     if (!user) return res.status(404).send("No user found.");
+    const member = { name: req.body.meet.creator };
     const createMeet = {
       name: req.body.meet.name,
       description: req.body.meet.description,
       location: req.body.meet.location,
       date: req.body.meet.date,
       time: req.body.meet.time,
-      creator: req.body.meet.creator
+      creator: req.body.meet.creator,
+      attending: member
     };
     Community.findOneAndUpdate(
       { _id: req.params.id },
