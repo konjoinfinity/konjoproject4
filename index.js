@@ -22,3 +22,6 @@ app.set("port", process.env.PORT || 4000);
 app.listen(app.get("port"), () => {
   console.log(`Running on PORT: ${app.get("port")}`);
 });
+
+// Backend in now fuctional after updating npm node modules
+// (was crashing due to node version conflict)
